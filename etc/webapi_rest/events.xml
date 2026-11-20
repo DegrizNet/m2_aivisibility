@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+    One-step checkouts (Firecheckout, Amasty, Hyvä Checkout, headless) place the order over REST,
+    where the frontend observers never run. The visitor's browser still sends the cookie.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_submit_all_after">
+        <observer name="magelan_ai_attribute_order" instance="Magelan\AiVisibility\Observer\AttributeOrder"/>
+    </event>
+</config>

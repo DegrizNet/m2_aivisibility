@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="magelan_ai_purge_hits" instance="Magelan\AiVisibility\Cron\PurgeHits" method="execute">
+            <schedule>50 3 * * *</schedule>
+        </job>
+        <job name="magelan_ai_page_review" instance="Magelan\AiVisibility\Cron\PageReview" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+        <job name="magelan_ai_page_review_weekly" instance="Magelan\AiVisibility\Cron\PageReviewWeekly" method="execute">
+            <schedule>0 7 * * 1</schedule>
+        </job>
+    </group>
+</config>

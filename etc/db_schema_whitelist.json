@@ -1,0 +1,135 @@
+{
+    "magelan_ai_bot_daily": {
+        "column": {
+            "bot": true,
+            "day": true,
+            "hits": true,
+            "last_path": true,
+            "last_seen": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magelan_ai_bot_hit": {
+        "column": {
+            "bot": true,
+            "created_at": true,
+            "hit_id": true,
+            "path": true,
+            "status": true,
+            "store_id": true
+        },
+        "index": {
+            "MAGELAN_AI_BOT_HIT_CREATED_AT": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magelan_ai_referral_daily": {
+        "column": {
+            "day": true,
+            "orders": true,
+            "revenue": true,
+            "source": true,
+            "store_id": true,
+            "visits": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magelan_ai_order": {
+        "column": {
+            "created_at": true,
+            "landing": true,
+            "order_id": true,
+            "source": true
+        },
+        "index": {
+            "MAGELAN_AI_ORDER_SOURCE": true
+        },
+        "constraint": {
+            "MAGELAN_AI_ORDER_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "magelan_ai_seo_run": {
+        "column": {
+            "checked": true,
+            "finished_at": true,
+            "note": true,
+            "pages": true,
+            "queued": true,
+            "run_id": true,
+            "score": true,
+            "started_at": true,
+            "status": true,
+            "store_id": true,
+            "summary": true
+        },
+        "index": {
+            "MAGELAN_AI_SEO_RUN_STORE_ID_STARTED_AT": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magelan_ai_seo_page": {
+        "column": {
+            "checked_at": true,
+            "checked_run_id": true,
+            "description": true,
+            "entity_id": true,
+            "entity_type": true,
+            "final_status": true,
+            "final_url": true,
+            "hops": true,
+            "http_status": true,
+            "issues": true,
+            "links": true,
+            "ms": true,
+            "page_id": true,
+            "path": true,
+            "path_hash": true,
+            "queued_run_id": true,
+            "score": true,
+            "seen_run_id": true,
+            "source": true,
+            "store_id": true,
+            "title": true
+        },
+        "index": {
+            "MAGELAN_AI_SEO_PAGE_QUEUED_RUN_ID": true,
+            "MAGELAN_AI_SEO_PAGE_STORE_ID_SOURCE_CHECKED_AT": true
+        },
+        "constraint": {
+            "MAGELAN_AI_SEO_PAGE_STORE_ID_PATH_HASH": true,
+            "PRIMARY": true
+        }
+    },
+    "magelan_ai_seo_missing": {
+        "column": {
+            "bot_hits": true,
+            "first_at": true,
+            "hits": true,
+            "last_at": true,
+            "missing_id": true,
+            "path": true,
+            "path_hash": true,
+            "referer": true,
+            "state": true,
+            "store_id": true,
+            "target": true
+        },
+        "index": {
+            "MAGELAN_AI_SEO_MISSING_STATE_LAST_AT": true
+        },
+        "constraint": {
+            "MAGELAN_AI_SEO_MISSING_STORE_ID_PATH_HASH": true,
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_front_send_response_before">
+        <observer name="magelan_ai_log_bot" instance="Magelan\AiVisibility\Observer\LogAiBot"/>
+        <!-- Missing pages (404), also the ones served from the built-in page cache. -->
+        <observer name="magelan_ai_log_missing_page" instance="Magelan\AiVisibility\Observer\LogMissingPage"/>
+    </event>
+    <event name="checkout_submit_all_after">
+        <observer name="magelan_ai_attribute_order" instance="Magelan\AiVisibility\Observer\AttributeOrder"/>
+    </event>
+</config>

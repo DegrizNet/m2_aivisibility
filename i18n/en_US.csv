@@ -1,0 +1,255 @@
+"Model training","Model training"
+"AI search index","AI search index"
+"Fetches for a user","Fetches for a user"
+"What Does a Bot See?","What Does a Bot See?"
+"The page could not be checked: %1","The page could not be checked: %1"
+"Only addresses of this shop can be checked.","Only addresses of this shop can be checked."
+"AI Visibility","AI Visibility"
+"Page not found.","Page not found."
+"Magelan AI Visibility","Magelan AI Visibility"
+"Page Audit","Page Audit"
+"Overview","Overview"
+"Configuration","Configuration"
+"Magelan","Magelan"
+"General","General"
+"Enabled","Enabled"
+"Switches on llms.txt, the crawler rules and both counters below. Off leaves robots.txt exactly as the shop wrote it.","Switches on llms.txt, the crawler rules and both counters below. Off leaves robots.txt exactly as the shop wrote it."
+"AI Crawlers in robots.txt","AI Crawlers in robots.txt"
+"Added after the shop's own robots.txt (Content &gt; Design &gt; Configuration &gt; Search Engine Robots). Flush the cache after a change.","Added after the shop's own robots.txt (Content &gt; Design &gt; Configuration &gt; Search Engine Robots). Flush the cache after a change."
+"Add AI Crawler Rules","Add AI Crawler Rules"
+"AI Search Crawlers","AI Search Crawlers"
+"OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... They build the index assistants answer from. Blocking them takes the shop out of the answers.","OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... They build the index assistants answer from. Blocking them takes the shop out of the answers."
+"Fetches for a User","Fetches for a User"
+"ChatGPT-User, Claude-User, Perplexity-User ... A person asked the assistant about this page, now.","ChatGPT-User, Claude-User, Perplexity-User ... A person asked the assistant about this page, now."
+"Model Training Crawlers","Model Training Crawlers"
+"GPTBot, ClaudeBot, Google-Extended, CCBot ... What models learn about the shop and its products comes from these.","GPTBot, ClaudeBot, Google-Extended, CCBot ... What models learn about the shop and its products comes from these."
+"Always Block","Always Block"
+"Always Allow","Always Allow"
+"Paths Allowed Crawlers Must Not Read","Paths Allowed Crawlers Must Not Read"
+"One per line, starting with a slash. The shop's own ""User-agent: *"" rules are repeated for AI crawlers automatically.","One per line, starting with a slash. The shop's own ""User-agent: *"" rules are repeated for AI crawlers automatically."
+"llms.txt","llms.txt"
+"A plain-text guide to the shop for AI assistants, at <em>/llms.txt</em> of each store view (llmstxt.org). Rebuilt at most every six hours.","A plain-text guide to the shop for AI assistants, at <em>/llms.txt</em> of each store view (llmstxt.org). Rebuilt at most every six hours."
+"Publish llms.txt","Publish llms.txt"
+"Summary","Summary"
+"One or two sentences: what the shop sells, to whom, what makes it different. Empty uses the default meta description.","One or two sentences: what the shop sells, to whom, what makes it different. Empty uses the default meta description."
+"About the Shop","About the Shop"
+"Facts an assistant may be asked: since when, where, own production, delivery times, guarantees. Markdown allowed.","Facts an assistant may be asked: since when, where, own production, delivery times, guarantees. Markdown allowed."
+"Pages About the Shop","Pages About the Shop"
+"Policy Pages (Delivery, Returns, Terms)","Policy Pages (Delivery, Returns, Terms)"
+"List the Categories","List the Categories"
+"Best Sellers Listed","Best Sellers Listed"
+"By quantity sold in the last year; a new shop lists its newest products. 0 lists none.","By quantity sold in the last year; a new shop lists its newest products. 0 lists none."
+"Publish llms-full.txt","Publish llms-full.txt"
+"Every visible product with its price and description, at /llms-full.txt.","Every visible product with its price and description, at /llms-full.txt."
+"Products in llms-full.txt at Most","Products in llms-full.txt at Most"
+"Counting","Counting"
+"Count AI Crawler Visits","Count AI Crawler Visits"
+"Which crawler, which page, which status. No IP address is stored.","Which crawler, which page, which status. No IP address is stored."
+"Count Visitors and Orders From AI Assistants","Count Visitors and Orders From AI Assistants"
+"A first-party cookie remembers which assistant a visitor came from. With Magento's cookie restriction mode on, only after the visitor agrees.","A first-party cookie remembers which assistant a visitor came from. With Magento's cookie restriction mode on, only after the visitor agrees."
+"Credit an Order Placed Within (days)","Credit an Order Placed Within (days)"
+"Keep Single Crawler Visits For (days)","Keep Single Crawler Visits For (days)"
+"Products without a description","Products without a description"
+"Products without a short description","Products without a short description"
+"Products without a meta description","Products without a meta description"
+"Products without a picture","Products without a picture"
+"Products with pictures without a label of their own (the product name is used as alt text)","Products with pictures without a label of their own (the product name is used as alt text)"
+"Products without a published review","Products without a published review"
+"Categories without a description","Categories without a description"
+"CMS pages without a meta description","CMS pages without a meta description"
+"Enter a full address starting with https://","Enter a full address starting with https://"
+"The page could not be fetched: %1","The page could not be fetched: %1"
+"Too many redirects.","Too many redirects."
+"The page answers the bot","The page answers the bot"
+"HTTP status %1","HTTP status %1"
+"The page may be indexed","The page may be indexed"
+"Title","Title"
+"Meta description","Meta description"
+"Missing. Assistants often quote it as the summary of the page.","Missing. Assistants often quote it as the summary of the page."
+"One main heading (H1)","One main heading (H1)"
+"None found.","None found."
+"Text readable without JavaScript","Text readable without JavaScript"
+"%1 words. Below 150 the page says little to a bot that does not run scripts.","%1 words. Below 150 the page says little to a bot that does not run scripts."
+"Canonical address","Canonical address"
+"Missing.","Missing."
+"Structured data (JSON-LD)","Structured data (JSON-LD)"
+"None. Structured data is the most reliable way to state facts to a machine.","None. Structured data is the most reliable way to state facts to a machine."
+"Price in the structured data","Price in the structured data"
+"Missing. Without it an assistant can not answer ""how much is it"".","Missing. Without it an assistant can not answer ""how much is it""."
+"Availability in the structured data","Availability in the structured data"
+"Rating in the structured data","Rating in the structured data"
+"%1 from %2 reviews","%1 from %2 reviews"
+"No reviews in the markup. Assistants favour products with visible ratings.","No reviews in the markup. Assistants favour products with visible ratings."
+"Breadcrumbs in the structured data","Breadcrumbs in the structured data"
+"Images described (alt text)","Images described (alt text)"
+"%1 of %2 images have no alt text.","%1 of %2 images have no alt text."
+"training","training"
+"AI search","AI search"
+"user request","user request"
+"Allow","Allow"
+"Block","Block"
+"Good","Good"
+"Could be better","Could be better"
+"Missing","Missing"
+"What does an AI crawler see on this page?","What does an AI crawler see on this page?"
+"The page is fetched over the internet with the crawler's name, the way the crawler itself would get it, and read without running JavaScript.","The page is fetched over the internet with the crawler's name, the way the crawler itself would get it, and read without running JavaScript."
+"Address","Address"
+"Crawler","Crawler"
+"Check","Check"
+"%1 as %2: HTTP %3, %4 kB, %5 ms","%1 as %2: HTTP %3, %4 kB, %5 ms"
+"May each AI crawler read this page?","May each AI crawler read this page?"
+"According to the robots.txt of this store view.","According to the robots.txt of this store view."
+"Allowed","Allowed"
+"Blocked","Blocked"
+"How ready is the catalogue?","How ready is the catalogue?"
+"Assistants answer from what the shop writes. Every empty description is a question they can not answer about that product.","Assistants answer from what the shop writes. Every empty description is a question they can not answer about that product."
+"The module is switched off for the default store view.","The module is switched off for the default store view."
+"Settings","Settings"
+"Period","Period"
+"%1 days","%1 days"
+"What does a bot see?","What does a bot see?"
+"AI crawler visits","AI crawler visits"
+"AI crawler visits per day","AI crawler visits per day"
+"Company","Company"
+"Purpose","Purpose"
+"robots.txt","robots.txt"
+"Visits","Visits"
+"Last visit (UTC)","Last visit (UTC)"
+"robots.txt token only, never visits","robots.txt token only, never visits"
+"Counted when Magento answers the request, including pages from its own page cache. Pages served by Varnish or a CDN without reaching Magento are not counted.","Counted when Magento answers the request, including pages from its own page cache. Pages served by Varnish or a CDN without reaching Magento are not counted."
+"Visitors and orders from AI assistants","Visitors and orders from AI assistants"
+"No visits from AI assistants in this period yet.","No visits from AI assistants in this period yet."
+"Assistant","Assistant"
+"Orders","Orders"
+"Conversion","Conversion"
+"Revenue","Revenue"
+"A visit counts when the visitor arrives from an assistant or with its utm_source. An order counts when it is placed within the attribution window after such a visit.","A visit counts when the visitor arrives from an assistant or with its utm_source. An order counts when it is placed within the attribution window after such a visit."
+"Pages AI crawlers read most","Pages AI crawlers read most"
+"Nothing yet.","Nothing yet."
+"Page","Page"
+"Crawlers","Crawlers"
+"Errors","Errors"
+"The CDN in front of the shop (HTTP %1) answered this server with a bot challenge instead of the page. Real AI crawlers come from their own addresses and may be let through or stopped - check the bot settings of the CDN. The page below was read from Magento directly.","The CDN in front of the shop (HTTP %1) answered this server with a bot challenge instead of the page. Real AI crawlers come from their own addresses and may be let through or stopped - check the bot settings of the CDN. The page below was read from Magento directly."
+"The CDN in front of the shop (HTTP %1) answered this server with a bot challenge, and the page could not be read from Magento directly either.","The CDN in front of the shop (HTTP %1) answered this server with a bot challenge, and the page could not be read from Magento directly either."
+"%1 words.","%1 words."
+%1 characters,%1 characters
+%1 of %2 images,%1 of %2 images
+%1 of %2 pages checked.,%1 of %2 pages checked.
+%1 pages,%1 pages
+%1 pages reviewed,%1 pages reviewed
+%1 redirected so far.,%1 redirected so far.
+%1 s,%1 s
+%1 words,%1 words
+(%1 redirects in a row),(%1 redirects in a row)
+"1000 = one page a second, which no shop notices.","1000 = one page a second, which no shop notices."
+"A URL rewrite for ""%1"" exists already (Marketing > URL Rewrites).","A URL rewrite for ""%1"" exists already (Marketing > URL Rewrites)."
+A bigger shop is reviewed in turns: the pages checked longest ago go first.,A bigger shop is reviewed in turns: the pages checked longest ago go first.
+"A title of a few words says little. Add the kind of product, the brand or the category.","A title of a few words says little. Add the kind of product, the brand or the category."
+Addresses not found (404),Addresses not found (404)
+"Addresses visitors and search engines asked for that do not exist: old links, deleted products, typos. Redirect them to the page that replaced them, and visitors and search ranking are not lost.","Addresses visitors and search engines asked for that do not exist: old links, deleted products, typos. Redirect them to the page that replaced them, and visitors and search ranking are not lost."
+Canonical address points elsewhere,Canonical address points elsewhere
+Checking the links between the pages...,Checking the links between the pages...
+Comma-separated. Empty: the General Contact of the store.,Comma-separated. Empty: the General Contact of the store.
+"Counts addresses visitors ask for that do not exist, so you can redirect them with one click. Only the path and the page that linked to it are kept.","Counts addresses visitors ask for that do not exist, so you can redirect them with one click. Only the path and the page that linked to it are kept."
+Create Redirects for Missing Pages,Create Redirects for Missing Pages
+"Describe the images in a few words (alt text, ""Label"" in the product images). Search engines and screen readers read it.","Describe the images in a few words (alt text, ""Label"" in the product images). Search engines and screen readers read it."
+"Enter the address of an existing page, for example new-page.html.","Enter the address of an existing page, for example new-page.html."
+"Every night the shop reads its own pages the way a search engine does and lists what to fix: titles, descriptions, headings, broken links, redirects. It changes nothing. Marketing > AI Visibility > Page Review.","Every night the shop reads its own pages the way a search engine does and lists what to fix: titles, descriptions, headings, broken links, redirects. It changes nothing. Marketing > AI Visibility > Page Review."
+Every page starts at 100 and loses points for each problem. Last review: %1.,Every page starts at 100 and loses points for each problem. Last review: %1.
+"Fewer than 150 words of text. Add a description: what it is, materials, sizes, use, care.","Fewer than 150 words of text. Add a description: what it is, materials, sizes, use, care."
+Fill in the Meta Description: one or two sentences (70 to 160 characters) that make people click. Without it Google takes a random piece of the page.,Fill in the Meta Description: one or two sentences (70 to 160 characters) that make people click. Without it Google takes a random piece of the page.
+"Fill in the Meta Title in the ""Search Engine Optimization"" section. It is the blue line people click in Google.","Fill in the Meta Title in the ""Search Engine Optimization"" section. It is the blue line people click in Google."
+Fix,Fix
+Fix first,Fix first
+Found,Found
+Google cuts the description at about 160 characters. Keep the important part at the start.,Google cuts the description at about 160 characters. Keep the important part at the start.
+Google shows about 60 characters. Put the important words first and shorten the rest.,Google shows about 60 characters. Put the important words first and shorten the rest.
+HTTP %1,HTTP %1
+HTTP %1 to %2,HTTP %1 to %2
+Hidden from search engines (noindex),Hidden from search engines (noindex)
+Ignore,Ignore
+Images without alt text,Images without alt text
+Important,Important
+Last (UTC),Last (UTC)
+Linked from,Linked from
+Links to addresses that redirect,Links to addresses that redirect
+Links to pages that do not exist,Links to pages that do not exist
+Little text,Little text
+Log Pages Not Found (404),Log Pages Not Found (404)
+Meta description too long,Meta description too long
+Meta description too short,Meta description too short
+More than one main heading (H1),More than one main heading (H1)
+Nice to fix,Nice to fix
+No Product data,No Product data
+No main heading (H1),No main heading (H1)
+No meta description,No meta description
+No review yet,No review yet
+No title,No title
+None so far.,None so far.
+Not found: /%1 (%2 visits),Not found: /%1 (%2 visits)
+"Not found: /%1 (%2 visits, of them %3 from bots and AI assistants)","Not found: /%1 (%2 visits, of them %3 from bots and AI assistants)"
+"Nothing. Every page has a title, a description and one main heading, and every link works.","Nothing. Every page has a title, a description and one main heading, and every link works."
+One main heading per page is clearest. Change the other H1 headings in the content to H2.,One main heading per page is clearest. Change the other H1 headings in the content to H2.
+"One page a second, so the shop does not notice. You can leave this page: the review goes on at night by itself.","One page a second, so the shop does not notice. You can leave this page: the review goes on at night by itself."
+Open the page review,Open the page review
+Page Review,Page Review
+Page review of %shop,Page review of %shop
+Page review: address not found (404),Page review: address not found (404)
+Pages per Night,Pages per Night
+Pause Between Pages (ms),Pause Between Pages (ms)
+Product data without a price,Product data without a price
+Product without price in the structured data,Product without price in the structured data
+Redirect,Redirect
+Redirect /%1 to,Redirect /%1 to
+Redirect created: it now leads to /%1 (Marketing > URL Rewrites).,Redirect created: it now leads to /%1 (Marketing > URL Rewrites).
+Redirect to,Redirect to
+Review Pages Every Night,Review Pages Every Night
+Review now,Review now
+Same meta description as other pages,Same meta description as other pages
+Same title as other pages,Same title as other pages
+Score,Score
+Score of %1 pages,Score of %1 pages
+Score of the last reviews,Score of the last reviews
+Search engines and AI assistants read the price from the structured data (JSON-LD). Check the theme or the rich snippets module.,Search engines and AI assistants read the price from the structured data (JSON-LD). Check the theme or the rich snippets module.
+"Search engines are told not to show this page. If it should be found, set Meta Robots to ""INDEX, FOLLOW"" (design settings of the page or Content > Design > Configuration).","Search engines are told not to show this page. If it should be found, set Meta Robots to ""INDEX, FOLLOW"" (design settings of the page or Content > Design > Configuration)."
+Send It To,Send It To
+"Several pages have the same meta description. Write one for this page, or leave it empty so Google picks text from the page.","Several pages have the same meta description. Write one for this page, or leave it empty so Google picks text from the page."
+"Several pages have the same title, so search engines cannot tell them apart. Add what makes this page different (colour, size, category).","Several pages have the same title, so search engines cannot tell them apart. Add what makes this page different (colour, size, category)."
+Slow answer,Slow answer
+Start At (Hour),Start At (Hour)
+Stopped: it did not finish within a day.,Stopped: it did not finish within a day.
+Store view,Store view
+Suggested: the most similar existing address.,Suggested: the most similar existing address.
+The %1 pages with the lowest score are shown; fix them and the next review shows the rest.,The %1 pages with the lowest score are shown; fix them and the next review shows the rest.
+The address is no longer listed.,The address is no longer listed.
+The address redirects,The address redirects
+The address the shop links to sends visitors on to another one. Usually an old URL key: save the item again or update the links to the new address.,The address the shop links to sends visitors on to another one. Usually an old URL key: save the item again or update the links to the new address.
+The page does not open,The page does not open
+"The page has no main heading. The theme should show the product, category or page name as H1.","The page has no main heading. The theme should show the product, category or page name as H1."
+The page links to addresses that answer 404. Fix or remove these links; the list is below.,The page links to addresses that answer 404. Fix or remove these links; the list is below.
+The page links to old addresses that redirect. Each detour costs time; link to the new address directly.,The page links to old addresses that redirect. Each detour costs time; link to the new address directly.
+The page tells search engines that another address is the original. Fine for variants and filters; for a normal page check the URL settings.,The page tells search engines that another address is the original. Fine for variants and filters; for a normal page check the URL settings.
+"The page took more than 3 seconds to build. Check that the full page cache is on; if it is, the page may be heavy.","The page took more than 3 seconds to build. Check that the full page cache is on; if it is, the page may be heavy."
+The redirect cannot point to the missing address itself.,The redirect cannot point to the missing address itself.
+The redirect could not be saved: %1,The redirect could not be saved: %1
+The review could not start: %1,The review could not start: %1
+The review is running,The review is running
+"The review reads every page of the shop the way Google and AI assistants read it, and lists what to fix: missing or repeated titles and descriptions, headings, broken links, redirects, slow pages. It changes nothing. It runs every night; click ""Review now"" to see the first result right away.","The review reads every page of the shop the way Google and AI assistants read it, and lists what to fix: missing or repeated titles and descriptions, headings, broken links, redirects, slow pages. It changes nothing. It runs every night; click ""Review now"" to see the first result right away."
+"The shop lists this page, but it answers with an error. Check that the product, category or page is enabled and visible in this store view, or remove it.","The shop lists this page, but it answers with an error. Check that the product, category or page is enabled and visible in this store view, or remove it."
+This address is no longer on the list.,This address is no longer on the list.
+Title too long,Title too long
+Title too short,Title too short
+Visitors,Visitors
+Weekly E-mail With the Score,Weekly E-mail With the Score
+What search engines and AI assistants find on your pages this week. 100 means nothing to fix.,What search engines and AI assistants find on your pages this week. 100 means nothing to fix.
+What to fix,What to fix
+"Write at least 70 characters: what it is, for whom, and why buy here (delivery, warranty).","Write at least 70 characters: what it is, for whom, and why buy here (delivery, warranty)."
+You can switch this e-mail off in Stores > Configuration > Magelan > AI Visibility > Page Review.,You can switch this e-mail off in Stores > Configuration > Magelan > AI Visibility > Page Review.
+and %1 more,and %1 more
+new-page.html,new-page.html
+"The CDN in front of the shop answered the review with a bot challenge (HTTP %1). Open this page in the admin once (so the review learns the address of the web server), or allow the user agent ""MagelanPageReview"" in the CDN.","The CDN in front of the shop answered the review with a bot challenge (HTTP %1). Open this page in the admin once (so the review learns the address of the web server), or allow the user agent ""MagelanPageReview"" in the CDN."
+"The CDN in front of the shop stops requests from the shop server itself, so the review reads the pages directly from the web server. Visitors and search engines are not affected.","The CDN in front of the shop stops requests from the shop server itself, so the review reads the pages directly from the web server. Visitors and search engines are not affected."
+Open the setting,Open the setting
+"Magelan Rich Snippets is installed, but its product data is switched off. Switch on ""Product JSON-LD"" and the price, availability and rating go into every product page.","Magelan Rich Snippets is installed, but its product data is switched off. Switch on ""Product JSON-LD"" and the price, availability and rating go into every product page."
+"HTTP Login for a Protected Shop","HTTP Login for a Protected Shop"
+"Only for a staging site behind a password (HTTP basic authentication), as user:password. Sent only to the shop's own addresses. Leave empty on a live shop.","Only for a staging site behind a password (HTTP basic authentication), as user:password. Sent only to the shop's own addresses. Leave empty on a live shop."

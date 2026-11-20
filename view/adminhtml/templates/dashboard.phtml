@@ -1,0 +1,137 @@
+<?php
+/**
+ * Copyright © Degriz d.o.o. All rights reserved.
+ * See LICENSE.txt for the licence.
+ *
+ * @var \Magelan\AiVisibility\Block\Adminhtml\Dashboard $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$days = $block->getDays();
+$bots = $block->getBots();
+$byDay = $block->getHitsByDay();
+$max = max(1, max($byDay ?: [0]));
+$referrals = $block->getReferrals();
+$paths = $block->getTopPaths();
+$totalHits = array_sum(array_column($bots, 'hits'));
+?>
+<div class="mgl-ai">
+    <?php if (!$block->isEnabled()): ?>
+        <div class="message message-warning">
+            <div><?= $escaper->escapeHtml(__('The module is switched off for the default store view.')) ?>
+                <a href="<?= $escaper->escapeUrl($block->getConfigUrl()) ?>"><?= $escaper->escapeHtml(__('Settings')) ?></a></div>
+        </div>
+    <?php endif; ?>
+
+    <div class="mgl-ai__bar">
+        <div class="mgl-ai__periods" role="group" aria-label="<?= $escaper->escapeHtmlAttr(__('Period')) ?>">
+            <?php foreach (\Magelan\AiVisibility\Block\Adminhtml\Dashboard::PERIODS as $period): ?>
+                <a class="mgl-ai__period<?= $period === $days ? ' _active' : '' ?>"
+                   href="<?= $escaper->escapeUrl($block->getPeriodUrl($period)) ?>"><?= $escaper->escapeHtml(__('%1 days', $period)) ?></a>
+            <?php endforeach; ?>
+        </div>
+        <div class="mgl-ai__links">
+            <?php if ($block->getLlmsUrl()): ?>
+                <a href="<?= $escaper->escapeUrl($block->getLlmsUrl()) ?>" target="_blank" rel="noopener">llms.txt</a>
+            <?php endif; ?>
+            <a href="<?= $escaper->escapeUrl($block->getRobotsUrl()) ?>" target="_blank" rel="noopener">robots.txt</a>
+            <a class="action-default" href="<?= $escaper->escapeUrl($block->getAuditUrl()) ?>"><?= $escaper->escapeHtml(__('What does a bot see?')) ?></a>
+        </div>
+    </div>
+
+    <section class="mgl-ai__card">
+        <h2><?= $escaper->escapeHtml(__('AI crawler visits')) ?> <small><?= (int)$totalHits ?></small></h2>
+        <div class="mgl-ai__chart" role="img" aria-label="<?= $escaper->escapeHtmlAttr(__('AI crawler visits per day')) ?>">
+            <?php foreach ($byDay as $day => $hits): ?>
+                <span style="height: <?= (int)round($hits * 100 / $max) ?>%" title="<?= $escaper->escapeHtmlAttr($day . ': ' . $hits) ?>"></span>
+            <?php endforeach; ?>
+        </div>
+        <table class="data-grid mgl-ai__table">
+            <thead>
+            <tr>
+                <th class="data-grid-th"><?= $escaper->escapeHtml(__('Crawler')) ?></th>
+                <th class="data-grid-th"><?= $escaper->escapeHtml(__('Company')) ?></th>
+                <th class="data-grid-th"><?= $escaper->escapeHtml(__('Purpose')) ?></th>
+                <th class="data-grid-th"><?= $escaper->escapeHtml(__('robots.txt')) ?></th>
+                <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Visits')) ?></th>
+                <th class="data-grid-th"><?= $escaper->escapeHtml(__('Last visit (UTC)')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($bots as $bot): ?>
+                <tr>
+                    <td><strong><?= $escaper->escapeHtml($bot['token']) ?></strong></td>
+                    <td><?= $escaper->escapeHtml($bot['company']) ?></td>
+                    <td><?= $escaper->escapeHtml($block->kindLabel($bot['kind'])) ?></td>
+                    <td>
+                        <span class="mgl-ai__pill <?= $bot['allowed'] ? '_ok' : '_no' ?>">
+                            <?= $escaper->escapeHtml($bot['allowed'] ? __('Allowed') : __('Blocked')) ?>
+                        </span>
+                    </td>
+                    <td class="_num"><?= $bot['logged'] ? (int)$bot['hits'] : '—' ?></td>
+                    <td><?= $escaper->escapeHtml($bot['logged'] ? (string)($bot['last_seen'] ?? '') : (string)__('robots.txt token only, never visits')) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <p class="note"><?= $escaper->escapeHtml(__('Counted when Magento answers the request, including pages from its own page cache. Pages served by Varnish or a CDN without reaching Magento are not counted.')) ?></p>
+    </section>
+
+    <section class="mgl-ai__card">
+        <h2><?= $escaper->escapeHtml(__('Visitors and orders from AI assistants')) ?></h2>
+        <?php if ($referrals === []): ?>
+            <p><?= $escaper->escapeHtml(__('No visits from AI assistants in this period yet.')) ?></p>
+        <?php else: ?>
+            <table class="data-grid mgl-ai__table">
+                <thead>
+                <tr>
+                    <th class="data-grid-th"><?= $escaper->escapeHtml(__('Assistant')) ?></th>
+                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Visits')) ?></th>
+                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Orders')) ?></th>
+                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Conversion')) ?></th>
+                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Revenue')) ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($referrals as $row): ?>
+                    <tr>
+                        <td><strong><?= $escaper->escapeHtml($row['label']) ?></strong></td>
+                        <td class="_num"><?= (int)$row['visits'] ?></td>
+                        <td class="_num"><?= (int)$row['orders'] ?></td>
+                        <td class="_num"><?= $escaper->escapeHtml(number_format((float)$row['conversion'], 1, ',', '')) ?> %</td>
+                        <td class="_num"><?= $escaper->escapeHtml($block->formatMoney((float)$row['revenue'])) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+        <p class="note"><?= $escaper->escapeHtml(__('A visit counts when the visitor arrives from an assistant or with its utm_source. An order counts when it is placed within the attribution window after such a visit.')) ?></p>
+    </section>
+
+    <section class="mgl-ai__card">
+        <h2><?= $escaper->escapeHtml(__('Pages AI crawlers read most')) ?></h2>
+        <?php if ($paths === []): ?>
+            <p><?= $escaper->escapeHtml(__('Nothing yet.')) ?></p>
+        <?php else: ?>
+            <table class="data-grid mgl-ai__table">
+                <thead>
+                <tr>
+                    <th class="data-grid-th"><?= $escaper->escapeHtml(__('Page')) ?></th>
+                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Visits')) ?></th>
+                    <th class="data-grid-th"><?= $escaper->escapeHtml(__('Crawlers')) ?></th>
+                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Errors')) ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($paths as $row): ?>
+                    <tr>
+                        <td><?= $escaper->escapeHtml($row['path']) ?></td>
+                        <td class="_num"><?= (int)$row['hits'] ?></td>
+                        <td><?= $escaper->escapeHtml((string)$row['bots']) ?></td>
+                        <td class="_num<?= (int)$row['errors'] > 0 ? ' _bad' : '' ?>"><?= (int)$row['errors'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    </section>
+</div>

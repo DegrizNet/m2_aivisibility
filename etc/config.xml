@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ships switched off. Once on: every AI crawler allowed except where a person's data or a cart
+ * lives, llms.txt with categories and twenty best sellers, both counters running.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magelan_aivisibility>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <robots>
+                <enabled>1</enabled>
+                <training>allow</training>
+                <search>allow</search>
+                <user>allow</user>
+                <always_block/>
+                <always_allow/>
+                <private_paths>/checkout/
+/customer/
+/wishlist/
+/sales/
+/catalogsearch/
+/sendfriend/
+/multishipping/</private_paths>
+            </robots>
+            <llms>
+                <enabled>1</enabled>
+                <full>1</full>
+                <summary/>
+                <about/>
+                <pages/>
+                <policies/>
+                <categories>1</categories>
+                <products>20</products>
+                <full_limit>5000</full_limit>
+            </llms>
+            <tracking>
+                <bots>1</bots>
+                <referrals>1</referrals>
+                <attribution_days>30</attribution_days>
+                <hit_days>30</hit_days>
+            </tracking>
+            <!-- The page review reads the shop at night, one page a second, and changes nothing. -->
+            <review>
+                <enabled>1</enabled>
+                <limit>1000</limit>
+                <delay_ms>1000</delay_ms>
+                <hour>2</hour>
+                <log_404>1</log_404>
+                <weekly>1</weekly>
+                <weekly_to/>
+            </review>
+        </magelan_aivisibility>
+    </default>
+</config>

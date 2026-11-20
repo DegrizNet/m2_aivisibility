@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * The settings, in the order a shop decides them: who may read the shop, what it tells them in
+ * llms.txt, and what is counted.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="Magelan" translate="label" sortOrder="300">
+            <label>Magelan</label>
+        </tab>
+        <section id="magelan_aivisibility" translate="label" sortOrder="404" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>AI Visibility</label>
+            <tab>Magelan</tab>
+            <resource>Magelan_AiVisibility::config</resource>
+
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Switches on llms.txt, the crawler rules and both counters below. Off leaves robots.txt exactly as the shop wrote it.</comment>
+                </field>
+            </group>
+
+            <group id="robots" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>AI Crawlers in robots.txt</label>
+                <comment><![CDATA[Added after the shop's own robots.txt (Content &gt; Design &gt; Configuration &gt; Search Engine Robots). Flush the cache after a change.]]></comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Add AI Crawler Rules</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="search" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>AI Search Crawlers</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\Policy</source_model>
+                    <comment>OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... They build the index assistants answer from. Blocking them takes the shop out of the answers.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="user" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Fetches for a User</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\Policy</source_model>
+                    <comment>ChatGPT-User, Claude-User, Perplexity-User ... A person asked the assistant about this page, now.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="training" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Model Training Crawlers</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\Policy</source_model>
+                    <comment>GPTBot, ClaudeBot, Google-Extended, CCBot ... What models learn about the shop and its products comes from these.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="always_block" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Always Block</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\Bots</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="always_allow" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Always Allow</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\Bots</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="private_paths" translate="label comment" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Paths Allowed Crawlers Must Not Read</label>
+                    <comment>One per line, starting with a slash. The shop's own "User-agent: *" rules are repeated for AI crawlers automatically.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="llms" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>llms.txt</label>
+                <comment><![CDATA[A plain-text guide to the shop for AI assistants, at <em>/llms.txt</em> of each store view (llmstxt.org). Rebuilt at most every six hours.]]></comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Publish llms.txt</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="summary" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Summary</label>
+                    <comment>One or two sentences: what the shop sells, to whom, what makes it different. Empty uses the default meta description.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="about" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>About the Shop</label>
+                    <comment>Facts an assistant may be asked: since when, where, own production, delivery times, guarantees. Markdown allowed.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="pages" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pages About the Shop</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\CmsPages</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="policies" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Policy Pages (Delivery, Returns, Terms)</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\CmsPages</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="categories" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>List the Categories</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="products" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Best Sellers Listed</label>
+                    <comment>By quantity sold in the last year; a new shop lists its newest products. 0 lists none.</comment>
+                    <validate>validate-digits validate-digits-range digits-range-0-500</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="full" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Publish llms-full.txt</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Every visible product with its price and description, at /llms-full.txt.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="full_limit" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Products in llms-full.txt at Most</label>
+                    <validate>validate-digits validate-digits-range digits-range-10-50000</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="full">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="tracking" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Counting</label>
+                <field id="bots" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Count AI Crawler Visits</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Which crawler, which page, which status. No IP address is stored.</comment>
+                </field>
+                <field id="referrals" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Count Visitors and Orders From AI Assistants</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>A first-party cookie remembers which assistant a visitor came from. With Magento's cookie restriction mode on, only after the visitor agrees.</comment>
+                </field>
+                <field id="attribution_days" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Credit an Order Placed Within (days)</label>
+                    <validate>validate-digits validate-digits-range digits-range-1-90</validate>
+                    <depends>
+                        <field id="referrals">1</field>
+                    </depends>
+                </field>
+                <field id="hit_days" translate="label" type="text" sortOrder="40" showInDefault="1" canRestore="1">
+                    <label>Keep Single Crawler Visits For (days)</label>
+                    <validate>validate-digits validate-digits-range digits-range-1-365</validate>
+                    <depends>
+                        <field id="bots">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="review" translate="label comment" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Page Review</label>
+                <comment>Every night the shop reads its own pages the way a search engine does and lists what to fix: titles, descriptions, headings, broken links, redirects. It changes nothing. Marketing > AI Visibility > Page Review.</comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Review Pages Every Night</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Pages per Night</label>
+                    <comment>A bigger shop is reviewed in turns: the pages checked longest ago go first.</comment>
+                    <validate>validate-digits validate-digits-range digits-range-20-20000</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="hour" translate="label" type="select" sortOrder="30" showInDefault="1" canRestore="1">
+                    <label>Start At (Hour)</label>
+                    <source_model>Magelan\AiVisibility\Model\Config\Source\Hours</source_model>
+                </field>
+                <field id="delay_ms" translate="label comment" type="text" sortOrder="40" showInDefault="1" canRestore="1">
+                    <label>Pause Between Pages (ms)</label>
+                    <comment>1000 = one page a second, which no shop notices.</comment>
+                    <validate>validate-digits validate-digits-range digits-range-0-10000</validate>
+                </field>
+                <field id="log_404" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Log Pages Not Found (404)</label>
+                    <comment>Counts addresses visitors ask for that do not exist, so you can redirect them with one click. Only the path and the page that linked to it are kept.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="weekly" translate="label" type="select" sortOrder="60" showInDefault="1" canRestore="1">
+                    <label>Weekly E-mail With the Score</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="weekly_to" translate="label comment" type="text" sortOrder="70" showInDefault="1">
+                    <label>Send It To</label>
+                    <comment>Comma-separated. Empty: the General Contact of the store.</comment>
+                    <depends>
+                        <field id="weekly">1</field>
+                    </depends>
+                </field>
+                <field id="http_auth" translate="label comment" type="obscure" sortOrder="80" showInDefault="1">
+                    <label>HTTP Login for a Protected Shop</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <comment>Only for a staging site behind a password (HTTP basic authentication), as user:password. Sent only to the shop's own addresses. Leave empty on a live shop.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

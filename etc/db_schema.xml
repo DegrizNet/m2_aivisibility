@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Counters, not logs of people: AI bot visits per day and the latest single visits (kept 30 days
+ * by default), visits and orders from AI assistants per day, and which orders came from which
+ * assistant. No IP address, no user agent string, no customer is stored.
+ *
+ * Index and unique key names follow Magento's own naming (TABLE_COLUMNS).
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magelan_ai_bot_daily" resource="default" engine="innodb" comment="Magelan AI visibility: AI bot visits per day">
+        <column xsi:type="date" name="day" nullable="false" comment="Day (UTC)"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false" default="0" comment="Store view"/>
+        <column xsi:type="varchar" name="bot" nullable="false" length="40" comment="Bot token"/>
+        <column xsi:type="int" name="hits" unsigned="true" nullable="false" identity="false" default="0" comment="Requests"/>
+        <column xsi:type="varchar" name="last_path" nullable="true" length="255" comment="Last page read"/>
+        <column xsi:type="datetime" name="last_seen" nullable="true" comment="Last request (UTC)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="day"/>
+            <column name="store_id"/>
+            <column name="bot"/>
+        </constraint>
+    </table>
+
+    <table name="magelan_ai_bot_hit" resource="default" engine="innodb" comment="Magelan AI visibility: latest single AI bot visits">
+        <column xsi:type="int" name="hit_id" unsigned="true" nullable="false" identity="true" comment="Hit"/>
+        <column xsi:type="datetime" name="created_at" nullable="false" comment="When (UTC)"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false" default="0" comment="Store view"/>
+        <column xsi:type="varchar" name="bot" nullable="false" length="40" comment="Bot token"/>
+        <column xsi:type="varchar" name="path" nullable="false" length="255" comment="Page"/>
+        <column xsi:type="smallint" name="status" unsigned="true" nullable="false" identity="false" default="200" comment="HTTP status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="hit_id"/>
+        </constraint>
+        <index referenceId="MAGELAN_AI_BOT_HIT_CREATED_AT" indexType="btree">
+            <column name="created_at"/>
+        </index>
+    </table>
+
+    <table name="magelan_ai_referral_daily" resource="default" engine="innodb" comment="Magelan AI visibility: visits and orders from AI assistants per day">
+        <column xsi:type="date" name="day" nullable="false" comment="Day (UTC)"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false" default="0" comment="Store view"/>
+        <column xsi:type="varchar" name="source" nullable="false" length="20" comment="Assistant"/>
+        <column xsi:type="int" name="visits" unsigned="true" nullable="false" identity="false" default="0" comment="Visits"/>
+        <column xsi:type="int" name="orders" unsigned="true" nullable="false" identity="false" default="0" comment="Orders"/>
+        <column xsi:type="decimal" name="revenue" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="Orders in base currency"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="day"/>
+            <column name="store_id"/>
+            <column name="source"/>
+        </constraint>
+    </table>
+
+    <table name="magelan_ai_order" resource="default" engine="innodb" comment="Magelan AI visibility: orders that came from an AI assistant">
+        <column xsi:type="int" name="order_id" unsigned="true" nullable="false" identity="false" comment="Order"/>
+        <column xsi:type="varchar" name="source" nullable="false" length="20" comment="Assistant"/>
+        <column xsi:type="varchar" name="landing" nullable="true" length="255" comment="First page of the visit"/>
+        <column xsi:type="datetime" name="created_at" nullable="false" comment="When (UTC)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="order_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MAGELAN_AI_ORDER_ORDER_ID_SALES_ORDER_ENTITY_ID"
+                    table="magelan_ai_order" column="order_id" referenceTable="sales_order" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <index referenceId="MAGELAN_AI_ORDER_SOURCE" indexType="btree">
+            <column name="source"/>
+        </index>
+    </table>
+    <!-- Page review: one row per review run, the latest state of every page of the shop, and the
+         addresses visitors asked for that do not exist (404), counted per path. -->
+    <table name="magelan_ai_seo_run" resource="default" engine="innodb" comment="Magelan AI visibility: page review runs">
+        <column xsi:type="int" name="run_id" unsigned="true" nullable="false" identity="true" comment="Run"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" comment="Store view"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="12" default="running" comment="running, done, blocked"/>
+        <column xsi:type="int" name="queued" unsigned="true" nullable="false" default="0" comment="Pages to check in this run"/>
+        <column xsi:type="int" name="checked" unsigned="true" nullable="false" default="0" comment="Pages checked so far"/>
+        <column xsi:type="int" name="pages" unsigned="true" nullable="false" default="0" comment="Pages of the shop at the end"/>
+        <column xsi:type="smallint" name="score" unsigned="true" nullable="true" comment="Score 0-100 at the end"/>
+        <column xsi:type="text" name="summary" nullable="true" comment="Issue counts (JSON)"/>
+        <column xsi:type="varchar" name="note" nullable="true" length="255" comment="Why a run stopped"/>
+        <column xsi:type="datetime" name="started_at" nullable="false" comment="Started (UTC)"/>
+        <column xsi:type="datetime" name="finished_at" nullable="true" comment="Finished (UTC)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="run_id"/>
+        </constraint>
+        <index referenceId="MAGELAN_AI_SEO_RUN_STORE_ID_STARTED_AT" indexType="btree">
+            <column name="store_id"/>
+            <column name="started_at"/>
+        </index>
+    </table>
+    <table name="magelan_ai_seo_page" resource="default" engine="innodb" comment="Magelan AI visibility: latest review state of each page">
+        <column xsi:type="int" name="page_id" unsigned="true" nullable="false" identity="true" comment="Row"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" comment="Store view"/>
+        <column xsi:type="varchar" name="path" nullable="false" length="512" comment="Path below the store base URL"/>
+        <column xsi:type="varchar" name="path_hash" nullable="false" length="40" comment="sha1 of the path"/>
+        <column xsi:type="varchar" name="source" nullable="false" length="8" default="shop" comment="shop: a page of the shop; link: only linked to"/>
+        <column xsi:type="varchar" name="entity_type" nullable="true" length="16" comment="product, category, cms-page, home"/>
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="true" comment="Entity"/>
+        <column xsi:type="int" name="seen_run_id" unsigned="true" nullable="true" comment="Last run that listed the page"/>
+        <column xsi:type="int" name="queued_run_id" unsigned="true" nullable="true" comment="Run that is to check the page"/>
+        <column xsi:type="int" name="checked_run_id" unsigned="true" nullable="true" comment="Run that checked it last"/>
+        <column xsi:type="smallint" name="http_status" unsigned="true" nullable="true" comment="HTTP status of the address"/>
+        <column xsi:type="smallint" name="final_status" unsigned="true" nullable="true" comment="HTTP status after redirects"/>
+        <column xsi:type="smallint" name="hops" unsigned="true" nullable="false" default="0" comment="Redirects followed"/>
+        <column xsi:type="varchar" name="final_url" nullable="true" length="1024" comment="Address after redirects"/>
+        <column xsi:type="varchar" name="title" nullable="true" length="512" comment="Title"/>
+        <column xsi:type="varchar" name="description" nullable="true" length="1024" comment="Meta description"/>
+        <column xsi:type="int" name="ms" unsigned="true" nullable="true" comment="Answer time"/>
+        <column xsi:type="smallint" name="score" unsigned="true" nullable="true" comment="Page score 0-100"/>
+        <column xsi:type="text" name="issues" nullable="true" comment="Issues (JSON: code => detail)"/>
+        <column xsi:type="mediumtext" name="links" nullable="true" comment="Internal links on the page (JSON paths)"/>
+        <column xsi:type="datetime" name="checked_at" nullable="true" comment="Checked (UTC)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="page_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="MAGELAN_AI_SEO_PAGE_STORE_ID_PATH_HASH">
+            <column name="store_id"/>
+            <column name="path_hash"/>
+        </constraint>
+        <index referenceId="MAGELAN_AI_SEO_PAGE_QUEUED_RUN_ID" indexType="btree">
+            <column name="queued_run_id"/>
+        </index>
+        <index referenceId="MAGELAN_AI_SEO_PAGE_STORE_ID_SOURCE_CHECKED_AT" indexType="btree">
+            <column name="store_id"/>
+            <column name="source"/>
+            <column name="checked_at"/>
+        </index>
+    </table>
+    <table name="magelan_ai_seo_missing" resource="default" engine="innodb" comment="Magelan AI visibility: addresses that answered 404">
+        <column xsi:type="int" name="missing_id" unsigned="true" nullable="false" identity="true" comment="Row"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" comment="Store view"/>
+        <column xsi:type="varchar" name="path" nullable="false" length="512" comment="Requested path"/>
+        <column xsi:type="varchar" name="path_hash" nullable="false" length="40" comment="sha1 of the path"/>
+        <column xsi:type="int" name="hits" unsigned="true" nullable="false" default="0" comment="Visits by people"/>
+        <column xsi:type="int" name="bot_hits" unsigned="true" nullable="false" default="0" comment="Visits by crawlers"/>
+        <column xsi:type="varchar" name="referer" nullable="true" length="512" comment="Last page that linked here"/>
+        <column xsi:type="datetime" name="first_at" nullable="false" comment="First 404 (UTC)"/>
+        <column xsi:type="datetime" name="last_at" nullable="false" comment="Last 404 (UTC)"/>
+        <column xsi:type="varchar" name="state" nullable="false" length="12" default="open" comment="open, redirected, ignored"/>
+        <column xsi:type="varchar" name="target" nullable="true" length="512" comment="Redirect target path"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="missing_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="MAGELAN_AI_SEO_MISSING_STORE_ID_PATH_HASH">
+            <column name="store_id"/>
+            <column name="path_hash"/>
+        </constraint>
+        <index referenceId="MAGELAN_AI_SEO_MISSING_STATE_LAST_AT" indexType="btree">
+            <column name="state"/>
+            <column name="last_at"/>
+        </index>
+    </table>
+</schema>

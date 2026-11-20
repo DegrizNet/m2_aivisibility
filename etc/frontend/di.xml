@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- /llms.txt and /llms-full.txt, before the
+         standard router would call them a 404. -->
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="magelan_ai_llms" xsi:type="array">
+                    <item name="class" xsi:type="string">Magelan\AiVisibility\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">25</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- The 404 log writes only on a 404; the rest of the time it is never built. -->
+    <type name="Magelan\AiVisibility\Observer\LogMissingPage">
+        <arguments>
+            <argument name="missing" xsi:type="object">Magelan\AiVisibility\Model\Seo\Missing\Proxy</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magelan_AiVisibility: makes the shop readable for AI assistants and shows what they do with it -
+ * llms.txt, AI crawler rules, a log of their visits and the traffic and orders they send.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Magelan_AiVisibility">
+        <sequence>
+            <module name="Magento_Store"/>
+            <module name="Magento_Catalog"/>
+            <module name="Magento_Cms"/>
+            <module name="Magento_Sales"/>
+            <module name="Magento_Robots"/>
+            <module name="Magento_Quote"/>
+            <module name="Magento_Checkout"/>
+            <module name="Magento_Tax"/>
+            <module name="Magento_CatalogInventory"/>
+        </sequence>
+    </module>
+</config>

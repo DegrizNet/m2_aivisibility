@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::marketing">
+                    <resource id="Magelan_AiVisibility::dashboard" title="Magelan AI Visibility" translate="title" sortOrder="16">
+                        <resource id="Magelan_AiVisibility::audit" title="Page Audit" translate="title" sortOrder="10"/>
+                        <resource id="Magelan_AiVisibility::review" title="Page Review" translate="title" sortOrder="20">
+                            <resource id="Magelan_AiVisibility::redirect" title="Create Redirects for Missing Pages" translate="title" sortOrder="10"/>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magelan_AiVisibility::config" title="Magelan AI Visibility" translate="title" sortOrder="335"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

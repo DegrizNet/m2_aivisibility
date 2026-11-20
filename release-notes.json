@@ -1,0 +1,120 @@
+{
+    "module": "Magelan_AiVisibility",
+    "package": "degriznet/m2_aivisibility",
+    "releases": [
+        {
+            "version": "1.2.6",
+            "date": "2026-10-23",
+            "sl": [
+                "Pregled strani ne zapisuje več strani v predpomnilnik celotnih strani, zato ta ne raste več vsako noč in ne polni diska."
+            ],
+            "en": [
+                "The page review no longer writes pages into the full page cache, so the cache stops growing every night and filling the disk."
+            ]
+        },
+        {
+            "version": "1.2.5",
+            "date": "2026-10-15",
+            "sl": [],
+            "en": []
+        },
+        {
+            "version": "1.2.4",
+            "date": "2026-10-15",
+            "sl": [
+                "Opombe ob izdaji za stran modula."
+            ],
+            "en": [
+                "Release notes for the module page."
+            ]
+        },
+        {
+            "version": "1.2.3",
+            "date": "2026-10-12",
+            "sl": [
+                "Pregled strani: nastavitev prijave HTTP za trgovino za geslom (šifrirano), da testna trgovina za osnovno prijavo ni več v celoti označena kot napaka 401. Podatki gredo samo na strežnike trgovine.",
+                "Pregled strani prebere podatke o izdelku tudi iz mikropodatkov na strani, zato cena, razpoložljivost ali ocena niso več napačno označene kot manjkajoče.",
+                "Tedenska e-pošta pri strani, ki ne obstaja, pokaže, koliko obiskov so bili roboti in AI pomočniki.",
+                "Popravek: robots.txt je v trgovini, ki ni nikoli shranila lastnih pravil, vračal napako 500."
+            ],
+            "en": [
+                "Page review: an HTTP login setting for a shop behind a password (encrypted), so a staging shop behind basic authentication is no longer reported as HTTP 401 on every page. Credentials go only to the shop's own hosts.",
+                "The page review reads product facts from the page's microdata too, so a price, availability or rating is no longer wrongly reported as missing.",
+                "The weekly e-mail shows, for a page that does not exist, how many visits came from bots and AI assistants.",
+                "Fix: robots.txt answered an error 500 on a shop that had never saved its own rules."
+            ]
+        },
+        {
+            "version": "1.2.1",
+            "date": "2026-10-11",
+            "sl": [
+                "Pregled strani: če izdelki v strukturiranih podatkih nimajo cene, pa je modul Rich Snippets nameščen z izklopljenim zapisom izdelkov, nasvet to pove in vodi do nastavitve."
+            ],
+            "en": [
+                "Page review: when products have no price in the structured data and Rich Snippets is installed with its product data switched off, the advice says so and links to the setting."
+            ]
+        },
+        {
+            "version": "1.2.0",
+            "date": "2026-10-11",
+            "sl": [
+                "Pregled strani, SEO in GEO na enem mestu: vsako noč trgovina prebere vse strani kot iskalnik (domača stran, izdelke, kategorije, strani CMS) in našteje 20 vrst težav z nasvetom in povezavo Popravi.",
+                "Težave med stranmi: podvojeni naslovi in opisi ter povezave na strani, ki ne obstajajo ali preusmerjajo.",
+                "Ocena za vsako stran in za trgovino, trend zadnjih pregledov in ročni Pregled zdaj.",
+                "Dnevnik napak 404 z enim klikom za preusmeritev na najbolj podobno stran.",
+                "Tedenska e-pošta ob ponedeljkih z oceno po pogledih trgovine in največjimi težavami, v jeziku trgovine.",
+                "Če CDN zavrne zahteve strežnika, pregled bere strežnik neposredno."
+            ],
+            "en": [
+                "Page review, SEO and GEO in one place: every night the shop reads all its pages like a search engine (home, products, categories, CMS pages) and lists 20 kinds of problems with advice and a Fix link.",
+                "Problems across pages: repeated titles and descriptions, and links to pages that do not exist or redirect.",
+                "A score per page and for the shop, a trend of the last reviews and a manual Review now.",
+                "A 404 log with one click to redirect to the most similar page.",
+                "A Monday weekly e-mail with the score per store view and the biggest problems, in the shop's language.",
+                "When a CDN refuses the server's own requests, the review reads the web server directly."
+            ]
+        },
+        {
+            "version": "1.1.2",
+            "date": "2026-10-11",
+            "sl": [
+                "Menijski vnos se imenuje Vidnost za AI, Nastavitve so zadnje."
+            ],
+            "en": [
+                "The menu entry is called AI Visibility and Settings comes last."
+            ]
+        },
+        {
+            "version": "1.1.1",
+            "date": "2026-10-02",
+            "sl": [
+                "Vir izdelkov ACP je popolnejši: čisto besedilo opisa, črtne kode GTIN, kategorije, možnosti različic, prodajalec in nadomestno besedilo slik.",
+                "Pravilen naslov /ucp, kjer strežnik zavrne poti /.well-known/, in ukaz za takojšnjo ponovno gradnjo vira."
+            ],
+            "en": [
+                "A fuller ACP product feed: a plain-text description, GTIN barcodes, categories, variant options, seller and image alt text.",
+                "A /ucp address for servers that refuse /.well-known/ paths, and a command to rebuild the feed at once."
+            ]
+        },
+        {
+            "version": "1.1.0",
+            "date": "2026-10-02",
+            "sl": [
+                "Prva različica: vidnost v odgovorih AI. Datoteki llms.txt in llms-full.txt po pogledu trgovine.",
+                "Pravila za AI pajke v robots.txt (26 pajkov), dnevnik obiskov pajkov, tudi iz predpomnilnika strani.",
+                "Obiski, naročila in prihodek iz enajstih AI pomočnikov, tudi za naročila prek REST.",
+                "Pregled, revizija strani kot AI pajek in poročilo o pripravljenosti kataloga.",
+                "Agentna prodaja: vir izdelkov ACP (OpenAI) po pogledu trgovine, osvežen na tri ure, in blagajna UCP (Google), ki nakup konča v vaši blagajni.",
+                "Povezava do košarice za pomočnike, ki lahko pokažejo samo povezavo, z omejitvijo zahtev in dnevno zgornjo mejo."
+            ],
+            "en": [
+                "First version: visibility in AI answers. llms.txt and llms-full.txt per store view.",
+                "AI crawler rules in robots.txt (26 crawlers) and a crawler visit log, also from the page cache.",
+                "Visits, orders and revenue from eleven AI assistants, including orders placed over REST.",
+                "An overview, a page audit as an AI crawler and a catalog readiness report.",
+                "Agentic commerce: an ACP product feed (OpenAI) per store view, refreshed every three hours, and a UCP checkout (Google) that ends the purchase in your own checkout.",
+                "A cart link for assistants that can only show a link, with a rate limit and a daily ceiling."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,253 @@
+"Model training","Treniranje modela"
+"AI search index","AI indeks pretraživanja"
+"Fetches for a user","Dohvat na zahtjev korisnika"
+"What Does a Bot See?","Što vidi bot?"
+"The page could not be checked: %1","Stranicu nije bilo moguće provjeriti: %1"
+"Only addresses of this shop can be checked.","Možete provjeriti samo adrese ove trgovine."
+"AI Visibility","Vidljivost za AI"
+"Page not found.","Stranica ne postoji."
+"Magelan AI Visibility","Magelan vidljivost za AI"
+"Page Audit","Provjera stranice"
+"Overview","Pregled"
+"Configuration","Postavke"
+"Magelan","Magelan"
+"General","Općenito"
+"Enabled","Omogućeno"
+"Switches on llms.txt, the crawler rules and both counters below. Off leaves robots.txt exactly as the shop wrote it.","Uključuje llms.txt, pravila za pauke i oba brojača ispod. Isključeno ostavlja robots.txt točno onakvim kakvim ga je trgovina napisala."
+"AI Crawlers in robots.txt","AI pauci u robots.txt"
+"Added after the shop's own robots.txt (Content &gt; Design &gt; Configuration &gt; Search Engine Robots). Flush the cache after a change.","Dodaje se nakon vlastitog robots.txt trgovine (Sadržaj &gt; Dizajn &gt; Konfiguracija &gt; Roboti tražilica). Nakon promjene očistite predmemoriju."
+"Add AI Crawler Rules","Dodaj pravila za AI pauke"
+"AI Search Crawlers","AI pauci za pretraživanje"
+"OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... They build the index assistants answer from. Blocking them takes the shop out of the answers.","OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... Grade indeks iz kojeg asistenti odgovaraju. Ako ih blokirate, trgovina nije među odgovorima."
+"Fetches for a User","Dohvat na zahtjev korisnika"
+"ChatGPT-User, Claude-User, Perplexity-User ... A person asked the assistant about this page, now.","ChatGPT-User, Claude-User, Perplexity-User ... Osoba je upravo sada pitala asistenta o ovoj stranici."
+"Model Training Crawlers","Pauci za treniranje modela"
+"GPTBot, ClaudeBot, Google-Extended, CCBot ... What models learn about the shop and its products comes from these.","GPTBot, ClaudeBot, Google-Extended, CCBot ... Ono što modeli nauče o trgovini i proizvodima dolazi od njih."
+"Always Block","Uvijek blokiraj"
+"Always Allow","Uvijek dopusti"
+"Paths Allowed Crawlers Must Not Read","Putanje koje dopušteni pauci ne smiju čitati"
+"One per line, starting with a slash. The shop's own ""User-agent: *"" rules are repeated for AI crawlers automatically.","Jedna po retku, s kosom crtom na početku. Vlastita pravila trgovine za »User-agent: *« automatski se ponavljaju za AI pauke."
+"llms.txt","llms.txt"
+"A plain-text guide to the shop for AI assistants, at <em>/llms.txt</em> of each store view (llmstxt.org). Rebuilt at most every six hours.","Tekstualni vodič kroz trgovinu za AI asistente, na <em>/llms.txt</em> svakog prikaza trgovine (llmstxt.org). Osvježava se najviše svakih šest sati."
+"Publish llms.txt","Objavi llms.txt"
+"Summary","Sažetak"
+"One or two sentences: what the shop sells, to whom, what makes it different. Empty uses the default meta description.","Jedna ili dvije rečenice: što trgovina prodaje, kome i po čemu je drugačija. Prazno koristi zadani meta opis."
+"About the Shop","O trgovini"
+"Facts an assistant may be asked: since when, where, own production, delivery times, guarantees. Markdown allowed.","Činjenice o kojima netko može pitati asistenta: od kada, gdje, vlastita proizvodnja, rokovi isporuke, jamstva. Markdown je dopušten."
+"Pages About the Shop","Stranice o trgovini"
+"Policy Pages (Delivery, Returns, Terms)","Stranice s uvjetima (dostava, povrati, uvjeti)"
+"List the Categories","Navedi kategorije"
+"Best Sellers Listed","Broj navedenih najprodavanijih"
+"By quantity sold in the last year; a new shop lists its newest products. 0 lists none.","Prema prodanoj količini u zadnjih godinu dana; nova trgovina navodi najnovije proizvode. 0 ne navodi nijedan."
+"Publish llms-full.txt","Objavi llms-full.txt"
+"Every visible product with its price and description, at /llms-full.txt.","Svi vidljivi proizvodi s cijenom i opisom, na /llms-full.txt."
+"Products in llms-full.txt at Most","Najviše proizvoda u llms-full.txt"
+"Counting","Brojanje"
+"Count AI Crawler Visits","Broji posjete AI pauka"
+"Which crawler, which page, which status. No IP address is stored.","Koji pauk, koja stranica, koji status. IP adresa se ne sprema."
+"Count Visitors and Orders From AI Assistants","Broji posjetitelje i narudžbe iz AI asistenata"
+"A first-party cookie remembers which assistant a visitor came from. With Magento's cookie restriction mode on, only after the visitor agrees.","Kolačić prve strane pamti iz kojeg je asistenta posjetitelj došao. Ako je uključen Magentov način ograničenja kolačića, tek nakon pristanka."
+"Credit an Order Placed Within (days)","Pripiši narudžbu predanu unutar (dana)"
+"Keep Single Crawler Visits For (days)","Čuvaj pojedinačne posjete pauka (dana)"
+"Products without a description","Proizvodi bez opisa"
+"Products without a short description","Proizvodi bez kratkog opisa"
+"Products without a meta description","Proizvodi bez meta opisa"
+"Products without a picture","Proizvodi bez slike"
+"Products with pictures without a label of their own (the product name is used as alt text)","Proizvodi sa slikama bez vlastite oznake (kao alt koristi se naziv proizvoda)"
+"Products without a published review","Proizvodi bez objavljene recenzije"
+"Categories without a description","Kategorije bez opisa"
+"CMS pages without a meta description","CMS stranice bez meta opisa"
+"Enter a full address starting with https://","Upišite punu adresu koja počinje s https://"
+"The page could not be fetched: %1","Stranicu nije bilo moguće preuzeti: %1"
+"Too many redirects.","Previše preusmjeravanja."
+"The page answers the bot","Stranica odgovara botu"
+"HTTP status %1","HTTP status %1"
+"The page may be indexed","Stranica se smije indeksirati"
+"Title","Naslov"
+"Meta description","Meta opis"
+"Missing. Assistants often quote it as the summary of the page.","Nedostaje. Asistenti ga često navode kao sažetak stranice."
+"One main heading (H1)","Jedan glavni naslov (H1)"
+"None found.","Nije pronađen."
+"Text readable without JavaScript","Tekst čitljiv bez JavaScripta"
+"%1 words. Below 150 the page says little to a bot that does not run scripts.","%1 riječi. Ispod 150 stranica govori malo botu koji ne izvodi skripte."
+"Canonical address","Kanonska adresa"
+"Missing.","Nedostaje."
+"Structured data (JSON-LD)","Strukturirani podaci (JSON-LD)"
+"None. Structured data is the most reliable way to state facts to a machine.","Nema ih. Strukturirani podaci najpouzdaniji su način da stroju kažete činjenice."
+"Price in the structured data","Cijena u strukturiranim podacima"
+"Missing. Without it an assistant can not answer ""how much is it"".","Nedostaje. Bez nje asistent ne može odgovoriti »koliko košta«."
+"Availability in the structured data","Dostupnost u strukturiranim podacima"
+"Rating in the structured data","Ocjena u strukturiranim podacima"
+"%1 from %2 reviews","%1 iz %2 recenzija"
+"No reviews in the markup. Assistants favour products with visible ratings.","U oznakama nema recenzija. Asistenti daju prednost proizvodima s vidljivim ocjenama."
+"Breadcrumbs in the structured data","Navigacijske mrvice u strukturiranim podacima"
+"Images described (alt text)","Opisane slike (alt)"
+"%1 of %2 images have no alt text.","%1 od %2 slika nema alt opis."
+"training","treniranje"
+"AI search","AI pretraživanje"
+"user request","zahtjev korisnika"
+"Allow","Dopusti"
+"Block","Blokiraj"
+"Good","Dobro"
+"Could be better","Moglo bi biti bolje"
+"Missing","Nedostaje"
+"What does an AI crawler see on this page?","Što AI pauk vidi na ovoj stranici?"
+"The page is fetched over the internet with the crawler's name, the way the crawler itself would get it, and read without running JavaScript.","Stranica se preuzima preko interneta s imenom pauka, onako kako bi je dobio sam pauk, i čita se bez izvođenja JavaScripta."
+"Address","Adresa"
+"Crawler","Pauk"
+"Check","Provjeri"
+"%1 as %2: HTTP %3, %4 kB, %5 ms","%1 kao %2: HTTP %3, %4 kB, %5 ms"
+"May each AI crawler read this page?","Smije li svaki AI pauk čitati ovu stranicu?"
+"According to the robots.txt of this store view.","Prema robots.txt ovog prikaza trgovine."
+"Allowed","Dopušteno"
+"Blocked","Blokirano"
+"How ready is the catalogue?","Koliko je katalog spreman?"
+"Assistants answer from what the shop writes. Every empty description is a question they can not answer about that product.","Asistenti odgovaraju iz onoga što trgovina napiše. Svaki prazan opis je pitanje o proizvodu na koje ne mogu odgovoriti."
+"The module is switched off for the default store view.","Modul je isključen za zadani prikaz trgovine."
+"Settings","Postavke"
+"Period","Razdoblje"
+"%1 days","%1 dana"
+"What does a bot see?","Što vidi bot?"
+"AI crawler visits","Posjeti AI pauka"
+"AI crawler visits per day","Posjeti AI pauka po danima"
+"Company","Tvrtka"
+"Purpose","Namjena"
+"robots.txt","robots.txt"
+"Visits","Posjeti"
+"Last visit (UTC)","Zadnji posjet (UTC)"
+"robots.txt token only, never visits","samo oznaka u robots.txt, nikad ne posjećuje"
+"Counted when Magento answers the request, including pages from its own page cache. Pages served by Varnish or a CDN without reaching Magento are not counted.","Broji se kad Magento odgovori na zahtjev, uključujući stranice iz vlastite predmemorije. Stranice koje posluži Varnish ili CDN bez Magenta nisu brojene."
+"Visitors and orders from AI assistants","Posjetitelji i narudžbe iz AI asistenata"
+"No visits from AI assistants in this period yet.","U ovom razdoblju još nema posjeta iz AI asistenata."
+"Assistant","Asistent"
+"Orders","Narudžbe"
+"Conversion","Konverzija"
+"Revenue","Promet"
+"A visit counts when the visitor arrives from an assistant or with its utm_source. An order counts when it is placed within the attribution window after such a visit.","Posjet se broji kad posjetitelj dođe iz asistenta ili s njegovim utm_source. Narudžba se broji kad je predana unutar razdoblja pripisivanja nakon takvog posjeta."
+"Pages AI crawlers read most","Stranice koje AI pauci najviše čitaju"
+"Nothing yet.","Još ništa."
+"Page","Stranica"
+"Crawlers","Pauci"
+"Errors","Pogreške"
+"The CDN in front of the shop (HTTP %1) answered this server with a bot challenge instead of the page. Real AI crawlers come from their own addresses and may be let through or stopped - check the bot settings of the CDN. The page below was read from Magento directly.","CDN ispred trgovine (HTTP %1) je ovom poslužitelju umjesto stranice vratio izazov za botove. Pravi AI pauci dolaze sa svojih adresa i može ih propustiti ili zaustaviti – provjerite postavke botova u CDN-u. Stranica ispod pročitana je izravno iz Magenta."
+"The CDN in front of the shop (HTTP %1) answered this server with a bot challenge, and the page could not be read from Magento directly either.","CDN ispred trgovine (HTTP %1) je ovom poslužitelju vratio izazov za botove, a stranicu nije bilo moguće pročitati ni izravno iz Magenta."
+"%1 words.","%1 riječi."
+%1 characters,%1 znakova
+%1 of %2 images,%1 od %2 slika
+%1 of %2 pages checked.,Pregledano %1 od %2 stranica.
+"%1 pages","stranica: %1"
+%1 pages reviewed,pregledanih stranica: %1
+%1 redirected so far.,Dosad preusmjereno: %1.
+%1 s,%1 s
+%1 words,%1 riječi
+(%1 redirects in a row),(%1 preusmjeravanja zaredom)
+"1000 = one page a second, which no shop notices.","1000 = jedna stranica u sekundi, što nijedna trgovina ne primijeti."
+"A URL rewrite for ""%1"" exists already (Marketing > URL Rewrites).","Prepisivanje URL-a za ""%1"" već postoji (Marketing > Prepisivanja URL-a)."
+A bigger shop is reviewed in turns: the pages checked longest ago go first.,Veća trgovina pregledava se u dijelovima: najprije stranice koje su najdavnije pregledane.
+"A title of a few words says little. Add the kind of product, the brand or the category.","Naslov od nekoliko riječi kaže malo. Dodajte vrstu proizvoda, marku ili kategoriju."
+Addresses not found (404),Adrese koje ne postoje (404)
+"Addresses visitors and search engines asked for that do not exist: old links, deleted products, typos. Redirect them to the page that replaced them, and visitors and search ranking are not lost.","Adrese koje su tražili posjetitelji i tražilice, a ne postoje: stare poveznice, izbrisani proizvodi, tipfeleri. Preusmjerite ih na stranicu koja ih je zamijenila i ne gubite ni posjetitelje ni poziciju u tražilicama."
+Canonical address points elsewhere,Kanonska adresa pokazuje drugamo
+Checking the links between the pages...,Provjeravam poveznice između stranica...
+Comma-separated. Empty: the General Contact of the store.,Odvojeno zarezama. Prazno: opći kontakt trgovine.
+"Counts addresses visitors ask for that do not exist, so you can redirect them with one click. Only the path and the page that linked to it are kept.","Broji adrese koje posjetitelji traže, a ne postoje, kako biste ih mogli preusmjeriti jednim klikom. Sprema se samo putanja i stranica koja je na nju vodila."
+Create Redirects for Missing Pages,Izrada preusmjeravanja za nepostojeće stranice
+"Describe the images in a few words (alt text, ""Label"" in the product images). Search engines and screen readers read it.","Opišite slike s nekoliko riječi (alt tekst, ""Oznaka"" kod slika proizvoda). Čitaju ga tražilice i čitači zaslona."
+"Enter the address of an existing page, for example new-page.html.","Unesite adresu postojeće stranice, na primjer nova-stranica.html."
+"Every night the shop reads its own pages the way a search engine does and lists what to fix: titles, descriptions, headings, broken links, redirects. It changes nothing. Marketing > AI Visibility > Page Review.","Svake noći trgovina čita svoje stranice kao tražilica i navodi što popraviti: naslove, opise, glavne naslove, neispravne poveznice, preusmjeravanja. Ništa ne mijenja. Marketing > Vidljivost za AI > Pregled stranica."
+Every page starts at 100 and loses points for each problem. Last review: %1.,Svaka stranica počinje sa 100 bodova i gubi bodove za svaki problem. Zadnji pregled: %1.
+"Fewer than 150 words of text. Add a description: what it is, materials, sizes, use, care.","Manje od 150 riječi teksta. Dodajte opis: što je to, materijali, veličine, upotreba, njega."
+Fill in the Meta Description: one or two sentences (70 to 160 characters) that make people click. Without it Google takes a random piece of the page.,Ispunite meta opis: jedna ili dvije rečenice (70 do 160 znakova) koje ljude potaknu na klik. Bez njega Google uzima nasumičan dio stranice.
+"Fill in the Meta Title in the ""Search Engine Optimization"" section. It is the blue line people click in Google.","Ispunite meta naslov u odjeljku ""Optimizacija za tražilice"". To je plavi redak na koji ljudi kliknu u Googleu."
+Fix,Popravi
+Fix first,Prvo popraviti
+Found,Pronađeno
+Google cuts the description at about 160 characters. Keep the important part at the start.,Google opis reže na oko 160 znakova. Važno neka bude na početku.
+Google shows about 60 characters. Put the important words first and shorten the rest.,"Google prikazuje oko 60 znakova. Važne riječi stavite na početak, ostalo skratite."
+HTTP %1,HTTP %1
+HTTP %1 to %2,HTTP %1 na %2
+Hidden from search engines (noindex),Skrivena od tražilica (noindex)
+Ignore,Zanemari
+Images without alt text,Slike bez alt teksta
+Important,Važno
+Last (UTC),Zadnji put (UTC)
+Linked from,Poveznica sa stranice
+Links to addresses that redirect,Poveznice na adrese koje preusmjeravaju
+Links to pages that do not exist,Poveznice na stranice koje ne postoje
+Little text,Malo teksta
+Log Pages Not Found (404),Bilježi stranice koje ne postoje (404)
+Meta description too long,Meta opis predug
+Meta description too short,Meta opis prekratak
+More than one main heading (H1),Više od jednog glavnog naslova (H1)
+Nice to fix,Dobro popraviti
+No Product data,Nema podataka Product
+No main heading (H1),Nema glavnog naslova (H1)
+No meta description,Nema meta opisa
+No review yet,Pregleda još nema
+No title,Nema naslova
+None so far.,Dosad nijedna.
+Not found: /%1 (%2 visits),Ne postoji: /%1 (posjeta: %2)
+"Not found: /%1 (%2 visits, of them %3 from bots and AI assistants)","Ne postoji: /%1 (posjeta: %2, od toga botova i AI asistenata: %3)"
+"Nothing. Every page has a title, a description and one main heading, and every link works.","Ništa. Svaka stranica ima naslov, opis i jedan glavni naslov, sve poveznice rade."
+One main heading per page is clearest. Change the other H1 headings in the content to H2.,Jedan glavni naslov po stranici najjasniji je. Ostale naslove H1 u sadržaju promijenite u H2.
+"One page a second, so the shop does not notice. You can leave this page: the review goes on at night by itself.","Jedna stranica u sekundi, da trgovina to ne osjeti. Ovu stranicu možete napustiti: pregled se noću nastavlja sam."
+Open the page review,Otvori pregled stranica
+Page Review,Pregled stranica
+Page review of %shop,Pregled stranica trgovine %shop
+Page review: address not found (404),Pregled stranica: adresa ne postoji (404)
+Pages per Night,Stranica po noći
+Pause Between Pages (ms),Pauza između stranica (ms)
+Product data without a price,Podaci o proizvodu bez cijene
+Product without price in the structured data,Proizvod bez cijene u strukturiranim podacima
+Redirect,Preusmjeri
+Redirect /%1 to,Preusmjeri /%1 na
+Redirect created: it now leads to /%1 (Marketing > URL Rewrites).,Preusmjeravanje izrađeno: sada vodi na /%1 (Marketing > Prepisivanja URL-a).
+Redirect to,Preusmjeri na
+Review Pages Every Night,Svake noći pregledaj stranice
+Review now,Pregledaj sada
+Same meta description as other pages,Isti meta opis kao druge stranice
+Same title as other pages,Isti naslov kao druge stranice
+Score,Ocjena
+Score of %1 pages,Ocjena %1 stranica
+Score of the last reviews,Ocjena zadnjih pregleda
+Search engines and AI assistants read the price from the structured data (JSON-LD). Check the theme or the rich snippets module.,Tražilice i AI asistenti cijenu čitaju iz strukturiranih podataka (JSON-LD). Provjerite temu ili modul za obogaćene isječke.
+"Search engines are told not to show this page. If it should be found, set Meta Robots to ""INDEX, FOLLOW"" (design settings of the page or Content > Design > Configuration).","Tražilicama je rečeno da ne prikazuju ovu stranicu. Ako je trebaju pronaći, postavite Meta Robots na ""INDEX, FOLLOW"" (postavke dizajna stranice ili Sadržaj > Dizajn > Konfiguracija)."
+Send It To,Pošalji na
+"Several pages have the same meta description. Write one for this page, or leave it empty so Google picks text from the page.",Više stranica ima isti meta opis. Napišite vlastiti za ovu stranicu ili ga ostavite praznim da Google odabere tekst sa stranice.
+"Several pages have the same title, so search engines cannot tell them apart. Add what makes this page different (colour, size, category).","Više stranica ima isti naslov pa ih tražilice ne razlikuju. Dodajte po čemu se ova stranica razlikuje (boja, veličina, kategorija)."
+Slow answer,Spor odgovor
+Start At (Hour),Početak (sat)
+Stopped: it did not finish within a day.,Zaustavljeno: nije završeno u jednom danu.
+Store view,Prikaz trgovine
+Suggested: the most similar existing address.,Prijedlog: najsličnija postojeća adresa.
+The %1 pages with the lowest score are shown; fix them and the next review shows the rest.,Prikazano je %1 stranica s najnižom ocjenom; popravite ih i sljedeći pregled pokazuje ostale.
+The address is no longer listed.,Adresa više nije na popisu.
+The address redirects,Adresa preusmjerava
+The address the shop links to sends visitors on to another one. Usually an old URL key: save the item again or update the links to the new address.,Adresa na koju trgovina vodi šalje posjetitelje dalje na drugu. Obično stari URL ključ: ponovno spremite stavku ili ažurirajte poveznice na novu adresu.
+The page does not open,Stranica se ne otvara
+"The page has no main heading. The theme should show the product, category or page name as H1.","Stranica nema glavni naslov. Tema bi trebala prikazati ime proizvoda, kategorije ili stranice kao H1."
+The page links to addresses that answer 404. Fix or remove these links; the list is below.,Stranica vodi na adrese koje odgovaraju 404. Popravite ili uklonite te poveznice; popis je ispod.
+The page links to old addresses that redirect. Each detour costs time; link to the new address directly.,Stranica vodi na stare adrese koje preusmjeravaju. Svaki zaobilazak košta vrijeme; povežite izravno na novu adresu.
+The page tells search engines that another address is the original. Fine for variants and filters; for a normal page check the URL settings.,Stranica tražilicama poručuje da je izvornik druga adresa. U redu za varijante i filtre; kod obične stranice provjerite postavke URL-a.
+"The page took more than 3 seconds to build. Check that the full page cache is on; if it is, the page may be heavy.","Stranica se gradila dulje od 3 sekunde. Provjerite je li uključena predmemorija cijele stranice; ako jest, stranica je možda preteška."
+The redirect cannot point to the missing address itself.,Preusmjeravanje ne može pokazivati na samu nepostojeću adresu.
+The redirect could not be saved: %1,Preusmjeravanje nije moguće spremiti: %1
+The review could not start: %1,Pregled nije mogao započeti: %1
+The review is running,Pregled je u tijeku
+"The review reads every page of the shop the way Google and AI assistants read it, and lists what to fix: missing or repeated titles and descriptions, headings, broken links, redirects, slow pages. It changes nothing. It runs every night; click ""Review now"" to see the first result right away.","Pregled čita svaku stranicu trgovine onako kako je čitaju Google i AI asistenti i navodi što popraviti: nedostajuće ili ponovljene naslove i opise, glavne naslove, neispravne poveznice, preusmjeravanja, spore stranice. Ništa ne mijenja. Pokreće se svake noći; kliknite ""Pregledaj sada"" da prvi rezultat vidite odmah."
+"The shop lists this page, but it answers with an error. Check that the product, category or page is enabled and visible in this store view, or remove it.","Trgovina navodi ovu stranicu, ali ona odgovara greškom. Provjerite je li proizvod, kategorija ili stranica omogućena i vidljiva u ovom prikazu trgovine ili je uklonite."
+This address is no longer on the list.,Ove adrese više nema na popisu.
+Title too long,Naslov predug
+Title too short,Naslov prekratak
+Visitors,Posjetitelji
+Weekly E-mail With the Score,Tjedni e-mail s ocjenom
+What search engines and AI assistants find on your pages this week. 100 means nothing to fix.,Što ovaj tjedan na vašim stranicama pronalaze tražilice i AI asistenti. 100 znači da nema što popraviti.
+What to fix,Što popraviti
+"Write at least 70 characters: what it is, for whom, and why buy here (delivery, warranty).","Napišite barem 70 znakova: što je, za koga i zašto kupiti ovdje (dostava, jamstvo)."
+You can switch this e-mail off in Stores > Configuration > Magelan > AI Visibility > Page Review.,Ovaj e-mail možete isključiti u Trgovine > Konfiguracija > Magelan > Vidljivost za AI > Pregled stranica.
+and %1 more,i još %1
+new-page.html,nova-stranica.html
+"The CDN in front of the shop answered the review with a bot challenge (HTTP %1). Open this page in the admin once (so the review learns the address of the web server), or allow the user agent ""MagelanPageReview"" in the CDN.","CDN ispred trgovine odgovorio je pregledu provjerom za botove (HTTP %1). Jednom otvorite ovu stranicu u administraciji (da pregled sazna adresu web poslužitelja) ili u CDN-u dopustite agenta ""MagelanPageReview""."
+"The CDN in front of the shop stops requests from the shop server itself, so the review reads the pages directly from the web server. Visitors and search engines are not affected.",CDN ispred trgovine zaustavlja zahtjeve s poslužitelja same trgovine pa pregled čita stranice izravno s web poslužitelja. Na posjetitelje i tražilice to ne utječe.
+Open the setting,Otvori postavku
+"Magelan Rich Snippets is installed, but its product data is switched off. Switch on ""Product JSON-LD"" and the price, availability and rating go into every product page.","Magelan Rich Snippets je instaliran, ali su podaci o proizvodu isključeni. Uključite ""Product JSON-LD"" i cijena, dostupnost i ocjena idu na svaku stranicu proizvoda."

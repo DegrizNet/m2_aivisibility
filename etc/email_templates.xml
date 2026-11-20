@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * The weekly page review e-mail to the shop owner.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="magelan_ai_review_weekly" label="Magelan AI Visibility: Weekly Page Review" file="review_weekly.html" type="html" module="Magelan_AiVisibility" area="frontend"/>
+</config>

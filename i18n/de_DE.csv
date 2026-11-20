@@ -1,0 +1,253 @@
+"Model training","Modelltraining"
+"AI search index","KI-Suchindex"
+"Fetches for a user","Abruf im Auftrag eines Nutzers"
+"What Does a Bot See?","Was sieht ein Bot?"
+"The page could not be checked: %1","Die Seite konnte nicht geprüft werden: %1"
+"Only addresses of this shop can be checked.","Nur Adressen dieses Shops können geprüft werden."
+"AI Visibility","KI-Sichtbarkeit"
+"Page not found.","Seite nicht gefunden."
+"Magelan AI Visibility","Magelan KI-Sichtbarkeit"
+"Page Audit","Seitenprüfung"
+"Overview","Übersicht"
+"Configuration","Konfiguration"
+"Magelan","Magelan"
+"General","Allgemein"
+"Enabled","Aktiviert"
+"Switches on llms.txt, the crawler rules and both counters below. Off leaves robots.txt exactly as the shop wrote it.","Schaltet llms.txt, die Crawler-Regeln und beide Zähler unten ein. Aus lässt robots.txt genau so, wie der Shop sie geschrieben hat."
+"AI Crawlers in robots.txt","KI-Crawler in robots.txt"
+"Added after the shop's own robots.txt (Content &gt; Design &gt; Configuration &gt; Search Engine Robots). Flush the cache after a change.","Wird nach der eigenen robots.txt des Shops angefügt (Inhalt &gt; Design &gt; Konfiguration &gt; Suchmaschinen-Robots). Nach einer Änderung den Cache leeren."
+"Add AI Crawler Rules","KI-Crawler-Regeln hinzufügen"
+"AI Search Crawlers","KI-Such-Crawler"
+"OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... They build the index assistants answer from. Blocking them takes the shop out of the answers.","OAI-SearchBot, Claude-SearchBot, PerplexityBot, Amazonbot ... Sie bauen den Index, aus dem Assistenten antworten. Wer sie blockiert, kommt in den Antworten nicht vor."
+"Fetches for a User","Abrufe im Auftrag eines Nutzers"
+"ChatGPT-User, Claude-User, Perplexity-User ... A person asked the assistant about this page, now.","ChatGPT-User, Claude-User, Perplexity-User ... Eine Person hat den Assistenten gerade nach dieser Seite gefragt."
+"Model Training Crawlers","Crawler für Modelltraining"
+"GPTBot, ClaudeBot, Google-Extended, CCBot ... What models learn about the shop and its products comes from these.","GPTBot, ClaudeBot, Google-Extended, CCBot ... Was Modelle über den Shop und seine Produkte lernen, kommt von ihnen."
+"Always Block","Immer blockieren"
+"Always Allow","Immer erlauben"
+"Paths Allowed Crawlers Must Not Read","Pfade, die erlaubte Crawler nicht lesen dürfen"
+"One per line, starting with a slash. The shop's own ""User-agent: *"" rules are repeated for AI crawlers automatically.","Einer pro Zeile, mit Schrägstrich am Anfang. Die eigenen Regeln des Shops für »User-agent: *« werden für KI-Crawler automatisch wiederholt."
+"llms.txt","llms.txt"
+"A plain-text guide to the shop for AI assistants, at <em>/llms.txt</em> of each store view (llmstxt.org). Rebuilt at most every six hours.","Ein Textleitfaden zum Shop für KI-Assistenten, unter <em>/llms.txt</em> jeder Store-Ansicht (llmstxt.org). Höchstens alle sechs Stunden neu erstellt."
+"Publish llms.txt","llms.txt veröffentlichen"
+"Summary","Zusammenfassung"
+"One or two sentences: what the shop sells, to whom, what makes it different. Empty uses the default meta description.","Ein oder zwei Sätze: was der Shop verkauft, an wen und was ihn unterscheidet. Leer verwendet die Standard-Meta-Beschreibung."
+"About the Shop","Über den Shop"
+"Facts an assistant may be asked: since when, where, own production, delivery times, guarantees. Markdown allowed.","Fakten, nach denen ein Assistent gefragt werden kann: seit wann, wo, eigene Herstellung, Lieferzeiten, Garantien. Markdown erlaubt."
+"Pages About the Shop","Seiten über den Shop"
+"Policy Pages (Delivery, Returns, Terms)","Richtlinienseiten (Versand, Rückgabe, AGB)"
+"List the Categories","Kategorien auflisten"
+"Best Sellers Listed","Aufgeführte Bestseller"
+"By quantity sold in the last year; a new shop lists its newest products. 0 lists none.","Nach verkaufter Menge im letzten Jahr; ein neuer Shop listet seine neuesten Produkte. 0 listet keine."
+"Publish llms-full.txt","llms-full.txt veröffentlichen"
+"Every visible product with its price and description, at /llms-full.txt.","Alle sichtbaren Produkte mit Preis und Beschreibung, unter /llms-full.txt."
+"Products in llms-full.txt at Most","Höchstens Produkte in llms-full.txt"
+"Counting","Zählung"
+"Count AI Crawler Visits","KI-Crawler-Besuche zählen"
+"Which crawler, which page, which status. No IP address is stored.","Welcher Crawler, welche Seite, welcher Status. Keine IP-Adresse wird gespeichert."
+"Count Visitors and Orders From AI Assistants","Besucher und Bestellungen von KI-Assistenten zählen"
+"A first-party cookie remembers which assistant a visitor came from. With Magento's cookie restriction mode on, only after the visitor agrees.","Ein First-Party-Cookie merkt sich, von welchem Assistenten ein Besucher kam. Mit Magentos Cookie-Beschränkungsmodus erst nach Zustimmung."
+"Credit an Order Placed Within (days)","Bestellung zurechnen, wenn aufgegeben innerhalb (Tage)"
+"Keep Single Crawler Visits For (days)","Einzelne Crawler-Besuche aufbewahren (Tage)"
+"Products without a description","Produkte ohne Beschreibung"
+"Products without a short description","Produkte ohne Kurzbeschreibung"
+"Products without a meta description","Produkte ohne Meta-Beschreibung"
+"Products without a picture","Produkte ohne Bild"
+"Products with pictures without a label of their own (the product name is used as alt text)","Produkte mit Bildern ohne eigene Beschriftung (als Alt-Text dient der Produktname)"
+"Products without a published review","Produkte ohne veröffentlichte Bewertung"
+"Categories without a description","Kategorien ohne Beschreibung"
+"CMS pages without a meta description","CMS-Seiten ohne Meta-Beschreibung"
+"Enter a full address starting with https://","Geben Sie eine vollständige Adresse ein, die mit https:// beginnt"
+"The page could not be fetched: %1","Die Seite konnte nicht abgerufen werden: %1"
+"Too many redirects.","Zu viele Weiterleitungen."
+"The page answers the bot","Die Seite antwortet dem Bot"
+"HTTP status %1","HTTP-Status %1"
+"The page may be indexed","Die Seite darf indexiert werden"
+"Title","Titel"
+"Meta description","Meta-Beschreibung"
+"Missing. Assistants often quote it as the summary of the page.","Fehlt. Assistenten zitieren sie oft als Zusammenfassung der Seite."
+"One main heading (H1)","Eine Hauptüberschrift (H1)"
+"None found.","Keine gefunden."
+"Text readable without JavaScript","Text ohne JavaScript lesbar"
+"%1 words. Below 150 the page says little to a bot that does not run scripts.","%1 Wörter. Unter 150 sagt die Seite einem Bot, der keine Skripte ausführt, wenig."
+"Canonical address","Kanonische Adresse"
+"Missing.","Fehlt."
+"Structured data (JSON-LD)","Strukturierte Daten (JSON-LD)"
+"None. Structured data is the most reliable way to state facts to a machine.","Keine. Strukturierte Daten sind der zuverlässigste Weg, einer Maschine Fakten mitzuteilen."
+"Price in the structured data","Preis in den strukturierten Daten"
+"Missing. Without it an assistant can not answer ""how much is it"".","Fehlt. Ohne ihn kann ein Assistent »was kostet es« nicht beantworten."
+"Availability in the structured data","Verfügbarkeit in den strukturierten Daten"
+"Rating in the structured data","Bewertung in den strukturierten Daten"
+"%1 from %2 reviews","%1 aus %2 Bewertungen"
+"No reviews in the markup. Assistants favour products with visible ratings.","Keine Bewertungen im Markup. Assistenten bevorzugen Produkte mit sichtbaren Bewertungen."
+"Breadcrumbs in the structured data","Breadcrumbs in den strukturierten Daten"
+"Images described (alt text)","Beschriebene Bilder (Alt-Text)"
+"%1 of %2 images have no alt text.","%1 von %2 Bildern haben keinen Alt-Text."
+"training","Training"
+"AI search","KI-Suche"
+"user request","Nutzeranfrage"
+"Allow","Erlauben"
+"Block","Blockieren"
+"Good","Gut"
+"Could be better","Könnte besser sein"
+"Missing","Fehlt"
+"What does an AI crawler see on this page?","Was sieht ein KI-Crawler auf dieser Seite?"
+"The page is fetched over the internet with the crawler's name, the way the crawler itself would get it, and read without running JavaScript.","Die Seite wird über das Internet mit dem Namen des Crawlers abgerufen, so wie der Crawler selbst sie bekäme, und ohne JavaScript gelesen."
+"Address","Adresse"
+"Crawler","Crawler"
+"Check","Prüfen"
+"%1 as %2: HTTP %3, %4 kB, %5 ms","%1 als %2: HTTP %3, %4 kB, %5 ms"
+"May each AI crawler read this page?","Darf jeder KI-Crawler diese Seite lesen?"
+"According to the robots.txt of this store view.","Laut robots.txt dieser Store-Ansicht."
+"Allowed","Erlaubt"
+"Blocked","Blockiert"
+"How ready is the catalogue?","Wie bereit ist der Katalog?"
+"Assistants answer from what the shop writes. Every empty description is a question they can not answer about that product.","Assistenten antworten aus dem, was der Shop schreibt. Jede leere Beschreibung ist eine Frage zu diesem Produkt, die sie nicht beantworten können."
+"The module is switched off for the default store view.","Das Modul ist für die Standard-Store-Ansicht ausgeschaltet."
+"Settings","Einstellungen"
+"Period","Zeitraum"
+"%1 days","%1 Tage"
+"What does a bot see?","Was sieht ein Bot?"
+"AI crawler visits","Besuche von KI-Crawlern"
+"AI crawler visits per day","Besuche von KI-Crawlern pro Tag"
+"Company","Unternehmen"
+"Purpose","Zweck"
+"robots.txt","robots.txt"
+"Visits","Besuche"
+"Last visit (UTC)","Letzter Besuch (UTC)"
+"robots.txt token only, never visits","nur ein robots.txt-Token, besucht nie"
+"Counted when Magento answers the request, including pages from its own page cache. Pages served by Varnish or a CDN without reaching Magento are not counted.","Gezählt, wenn Magento die Anfrage beantwortet, auch mit Seiten aus dem eigenen Seiten-Cache. Seiten, die Varnish oder ein CDN ohne Magento ausliefert, werden nicht gezählt."
+"Visitors and orders from AI assistants","Besucher und Bestellungen von KI-Assistenten"
+"No visits from AI assistants in this period yet.","In diesem Zeitraum noch keine Besuche von KI-Assistenten."
+"Assistant","Assistent"
+"Orders","Bestellungen"
+"Conversion","Konversion"
+"Revenue","Umsatz"
+"A visit counts when the visitor arrives from an assistant or with its utm_source. An order counts when it is placed within the attribution window after such a visit.","Ein Besuch zählt, wenn der Besucher von einem Assistenten oder mit dessen utm_source kommt. Eine Bestellung zählt, wenn sie innerhalb des Zurechnungszeitraums nach einem solchen Besuch aufgegeben wird."
+"Pages AI crawlers read most","Seiten, die KI-Crawler am meisten lesen"
+"Nothing yet.","Noch nichts."
+"Page","Seite"
+"Crawlers","Crawler"
+"Errors","Fehler"
+"The CDN in front of the shop (HTTP %1) answered this server with a bot challenge instead of the page. Real AI crawlers come from their own addresses and may be let through or stopped - check the bot settings of the CDN. The page below was read from Magento directly.","Das CDN vor dem Shop (HTTP %1) hat diesem Server statt der Seite eine Bot-Prüfung geliefert. Echte KI-Crawler kommen von eigenen Adressen und werden womöglich durchgelassen oder gestoppt – prüfen Sie die Bot-Einstellungen des CDN. Die Seite unten wurde direkt aus Magento gelesen."
+"The CDN in front of the shop (HTTP %1) answered this server with a bot challenge, and the page could not be read from Magento directly either.","Das CDN vor dem Shop (HTTP %1) hat diesem Server eine Bot-Prüfung geliefert, und die Seite ließ sich auch direkt aus Magento nicht lesen."
+"%1 words.","%1 Wörter."
+%1 characters,%1 Zeichen
+%1 of %2 images,%1 von %2 Bildern
+%1 of %2 pages checked.,%1 von %2 Seiten geprüft.
+"%1 pages","Seiten: %1"
+%1 pages reviewed,%1 Seiten geprüft
+%1 redirected so far.,Bisher umgeleitet: %1.
+%1 s,%1 s
+%1 words,%1 Wörter
+(%1 redirects in a row),(%1 Weiterleitungen hintereinander)
+"1000 = one page a second, which no shop notices.","1000 = eine Seite pro Sekunde, das merkt kein Shop."
+"A URL rewrite for ""%1"" exists already (Marketing > URL Rewrites).","Für ""%1"" gibt es bereits eine URL-Umschreibung (Marketing > URL-Umschreibungen)."
+A bigger shop is reviewed in turns: the pages checked longest ago go first.,"Ein größerer Shop wird in Etappen geprüft: zuerst die Seiten, deren Prüfung am längsten her ist."
+"A title of a few words says little. Add the kind of product, the brand or the category.","Ein Titel aus wenigen Wörtern sagt wenig. Ergänzen Sie Produktart, Marke oder Kategorie."
+Addresses not found (404),Nicht gefundene Adressen (404)
+"Addresses visitors and search engines asked for that do not exist: old links, deleted products, typos. Redirect them to the page that replaced them, and visitors and search ranking are not lost.","Adressen, die Besucher und Suchmaschinen aufgerufen haben, die es aber nicht gibt: alte Links, gelöschte Produkte, Tippfehler. Leiten Sie sie auf die Seite um, die sie ersetzt hat, dann gehen weder Besucher noch Ranking verloren."
+Canonical address points elsewhere,Kanonische Adresse zeigt woanders hin
+Checking the links between the pages...,Prüfe die Links zwischen den Seiten ...
+Comma-separated. Empty: the General Contact of the store.,Durch Kommas getrennt. Leer: der allgemeine Kontakt des Shops.
+"Counts addresses visitors ask for that do not exist, so you can redirect them with one click. Only the path and the page that linked to it are kept.","Zählt Adressen, die Besucher aufrufen, die es aber nicht gibt, damit Sie sie mit einem Klick umleiten können. Gespeichert werden nur der Pfad und die verlinkende Seite."
+Create Redirects for Missing Pages,Umleitungen für fehlende Seiten anlegen
+"Describe the images in a few words (alt text, ""Label"" in the product images). Search engines and screen readers read it.","Beschreiben Sie die Bilder mit wenigen Wörtern (Alt-Text, ""Beschriftung"" bei den Produktbildern). Suchmaschinen und Screenreader lesen ihn."
+"Enter the address of an existing page, for example new-page.html.","Geben Sie die Adresse einer bestehenden Seite ein, zum Beispiel neue-seite.html."
+"Every night the shop reads its own pages the way a search engine does and lists what to fix: titles, descriptions, headings, broken links, redirects. It changes nothing. Marketing > AI Visibility > Page Review.","Jede Nacht liest der Shop seine eigenen Seiten wie eine Suchmaschine und listet auf, was zu verbessern ist: Titel, Beschreibungen, Überschriften, defekte Links, Weiterleitungen. Er ändert nichts. Marketing > KI-Sichtbarkeit > Seitenprüfung."
+Every page starts at 100 and loses points for each problem. Last review: %1.,Jede Seite beginnt bei 100 und verliert Punkte für jedes Problem. Letzte Prüfung: %1.
+"Fewer than 150 words of text. Add a description: what it is, materials, sizes, use, care.","Weniger als 150 Wörter Text. Ergänzen Sie eine Beschreibung: was es ist, Material, Größen, Verwendung, Pflege."
+Fill in the Meta Description: one or two sentences (70 to 160 characters) that make people click. Without it Google takes a random piece of the page.,"Füllen Sie die Meta-Beschreibung aus: ein oder zwei Sätze (70 bis 160 Zeichen), die zum Klicken einladen. Ohne sie nimmt Google ein beliebiges Stück der Seite."
+"Fill in the Meta Title in the ""Search Engine Optimization"" section. It is the blue line people click in Google.","Füllen Sie den Meta-Titel im Abschnitt ""Suchmaschinenoptimierung"" aus. Das ist die blaue Zeile, die Leute bei Google anklicken."
+Fix,Beheben
+Fix first,Zuerst beheben
+Found,Gefunden
+Google cuts the description at about 160 characters. Keep the important part at the start.,Google kürzt die Beschreibung bei etwa 160 Zeichen. Das Wichtige gehört an den Anfang.
+Google shows about 60 characters. Put the important words first and shorten the rest.,Google zeigt etwa 60 Zeichen. Stellen Sie die wichtigen Wörter nach vorn und kürzen Sie den Rest.
+HTTP %1,HTTP %1
+HTTP %1 to %2,HTTP %1 nach %2
+Hidden from search engines (noindex),Vor Suchmaschinen verborgen (noindex)
+Ignore,Ignorieren
+Images without alt text,Bilder ohne Alt-Text
+Important,Wichtig
+Last (UTC),Zuletzt (UTC)
+Linked from,Verlinkt von
+Links to addresses that redirect,"Links auf Adressen, die weiterleiten"
+Links to pages that do not exist,"Links auf Seiten, die es nicht gibt"
+Little text,Wenig Text
+Log Pages Not Found (404),Nicht gefundene Seiten (404) protokollieren
+Meta description too long,Meta-Beschreibung zu lang
+Meta description too short,Meta-Beschreibung zu kurz
+More than one main heading (H1),Mehr als eine Hauptüberschrift (H1)
+Nice to fix,Gut zu beheben
+No Product data,Keine Product-Daten
+No main heading (H1),Keine Hauptüberschrift (H1)
+No meta description,Keine Meta-Beschreibung
+No review yet,Noch keine Prüfung
+No title,Kein Titel
+None so far.,Bisher keine.
+Not found: /%1 (%2 visits),Nicht gefunden: /%1 (%2 Aufrufe)
+"Not found: /%1 (%2 visits, of them %3 from bots and AI assistants)","Nicht gefunden: /%1 (%2 Aufrufe, davon %3 von Bots und KI-Assistenten)"
+"Nothing. Every page has a title, a description and one main heading, and every link works.","Nichts. Jede Seite hat Titel, Beschreibung und eine Hauptüberschrift, und jeder Link funktioniert."
+One main heading per page is clearest. Change the other H1 headings in the content to H2.,Eine Hauptüberschrift pro Seite ist am klarsten. Ändern Sie die anderen H1-Überschriften im Inhalt in H2.
+"One page a second, so the shop does not notice. You can leave this page: the review goes on at night by itself.","Eine Seite pro Sekunde, damit der Shop nichts merkt. Sie können diese Seite verlassen: Die Prüfung läuft nachts von selbst weiter."
+Open the page review,Seitenprüfung öffnen
+Page Review,Seitenprüfung
+Page review of %shop,Seitenprüfung von %shop
+Page review: address not found (404),Seitenprüfung: Adresse nicht gefunden (404)
+Pages per Night,Seiten pro Nacht
+Pause Between Pages (ms),Pause zwischen Seiten (ms)
+Product data without a price,Produktdaten ohne Preis
+Product without price in the structured data,Produkt ohne Preis in den strukturierten Daten
+Redirect,Umleiten
+Redirect /%1 to,/%1 umleiten nach
+Redirect created: it now leads to /%1 (Marketing > URL Rewrites).,Umleitung angelegt: Sie führt jetzt nach /%1 (Marketing > URL-Umschreibungen).
+Redirect to,Umleiten nach
+Review Pages Every Night,Seiten jede Nacht prüfen
+Review now,Jetzt prüfen
+Same meta description as other pages,Gleiche Meta-Beschreibung wie andere Seiten
+Same title as other pages,Gleicher Titel wie andere Seiten
+Score,Punkte
+Score of %1 pages,Punktzahl von %1 Seiten
+Score of the last reviews,Punktzahl der letzten Prüfungen
+Search engines and AI assistants read the price from the structured data (JSON-LD). Check the theme or the rich snippets module.,Suchmaschinen und KI-Assistenten lesen den Preis aus den strukturierten Daten (JSON-LD). Prüfen Sie das Theme oder das Rich-Snippets-Modul.
+"Search engines are told not to show this page. If it should be found, set Meta Robots to ""INDEX, FOLLOW"" (design settings of the page or Content > Design > Configuration).","Suchmaschinen wird gesagt, diese Seite nicht anzuzeigen. Soll sie gefunden werden, setzen Sie Meta Robots auf ""INDEX, FOLLOW"" (Design-Einstellungen der Seite oder Inhalt > Design > Konfiguration)."
+Send It To,Senden an
+"Several pages have the same meta description. Write one for this page, or leave it empty so Google picks text from the page.","Mehrere Seiten haben dieselbe Meta-Beschreibung. Schreiben Sie eine eigene für diese Seite oder lassen Sie sie leer, damit Google Text von der Seite wählt."
+"Several pages have the same title, so search engines cannot tell them apart. Add what makes this page different (colour, size, category).","Mehrere Seiten haben denselben Titel, Suchmaschinen können sie nicht unterscheiden. Ergänzen Sie, was diese Seite unterscheidet (Farbe, Größe, Kategorie)."
+Slow answer,Langsame Antwort
+Start At (Hour),Start um (Stunde)
+Stopped: it did not finish within a day.,Gestoppt: Sie wurde nicht innerhalb eines Tages fertig.
+Store view,Store View
+Suggested: the most similar existing address.,Vorschlag: die ähnlichste bestehende Adresse.
+The %1 pages with the lowest score are shown; fix them and the next review shows the rest.,"Gezeigt werden die %1 Seiten mit der niedrigsten Punktzahl; beheben Sie sie, die nächste Prüfung zeigt den Rest."
+The address is no longer listed.,Die Adresse wird nicht mehr aufgeführt.
+The address redirects,Die Adresse leitet weiter
+The address the shop links to sends visitors on to another one. Usually an old URL key: save the item again or update the links to the new address.,"Die Adresse, auf die der Shop verlinkt, schickt Besucher zu einer anderen weiter. Meist ein alter URL-Schlüssel: Speichern Sie den Eintrag erneut oder aktualisieren Sie die Links auf die neue Adresse."
+The page does not open,Die Seite öffnet nicht
+"The page has no main heading. The theme should show the product, category or page name as H1.","Die Seite hat keine Hauptüberschrift. Das Theme sollte den Namen von Produkt, Kategorie oder Seite als H1 zeigen."
+The page links to addresses that answer 404. Fix or remove these links; the list is below.,"Die Seite verlinkt auf Adressen, die 404 antworten. Beheben oder entfernen Sie diese Links; die Liste steht unten."
+The page links to old addresses that redirect. Each detour costs time; link to the new address directly.,"Die Seite verlinkt auf alte Adressen, die weiterleiten. Jeder Umweg kostet Zeit; verlinken Sie direkt auf die neue Adresse."
+The page tells search engines that another address is the original. Fine for variants and filters; for a normal page check the URL settings.,"Die Seite sagt Suchmaschinen, dass eine andere Adresse das Original ist. In Ordnung für Varianten und Filter; bei einer normalen Seite prüfen Sie die URL-Einstellungen."
+"The page took more than 3 seconds to build. Check that the full page cache is on; if it is, the page may be heavy.","Die Seite brauchte mehr als 3 Sekunden. Prüfen Sie, ob der Full-Page-Cache aktiv ist; wenn ja, ist die Seite vielleicht zu schwer."
+The redirect cannot point to the missing address itself.,Die Umleitung kann nicht auf die fehlende Adresse selbst zeigen.
+The redirect could not be saved: %1,Die Umleitung konnte nicht gespeichert werden: %1
+The review could not start: %1,Die Prüfung konnte nicht starten: %1
+The review is running,Die Prüfung läuft
+"The review reads every page of the shop the way Google and AI assistants read it, and lists what to fix: missing or repeated titles and descriptions, headings, broken links, redirects, slow pages. It changes nothing. It runs every night; click ""Review now"" to see the first result right away.","Die Prüfung liest jede Seite des Shops so, wie Google und KI-Assistenten sie lesen, und listet auf, was zu verbessern ist: fehlende oder doppelte Titel und Beschreibungen, Überschriften, defekte Links, Weiterleitungen, langsame Seiten. Sie ändert nichts. Sie läuft jede Nacht; klicken Sie ""Jetzt prüfen"", um das erste Ergebnis sofort zu sehen."
+"The shop lists this page, but it answers with an error. Check that the product, category or page is enabled and visible in this store view, or remove it.","Der Shop führt diese Seite, aber sie antwortet mit einem Fehler. Prüfen Sie, ob Produkt, Kategorie oder Seite in diesem Store View aktiv und sichtbar ist, oder entfernen Sie sie."
+This address is no longer on the list.,Diese Adresse steht nicht mehr auf der Liste.
+Title too long,Titel zu lang
+Title too short,Titel zu kurz
+Visitors,Besucher
+Weekly E-mail With the Score,Wöchentliche E-Mail mit der Punktzahl
+What search engines and AI assistants find on your pages this week. 100 means nothing to fix.,Was Suchmaschinen und KI-Assistenten diese Woche auf Ihren Seiten finden. 100 heißt: nichts zu beheben.
+What to fix,Was zu beheben ist
+"Write at least 70 characters: what it is, for whom, and why buy here (delivery, warranty).","Schreiben Sie mindestens 70 Zeichen: was es ist, für wen und warum hier kaufen (Lieferung, Garantie)."
+You can switch this e-mail off in Stores > Configuration > Magelan > AI Visibility > Page Review.,Sie können diese E-Mail unter Shops > Konfiguration > Magelan > KI-Sichtbarkeit > Seitenprüfung abschalten.
+and %1 more,und %1 weitere
+new-page.html,neue-seite.html
+"The CDN in front of the shop answered the review with a bot challenge (HTTP %1). Open this page in the admin once (so the review learns the address of the web server), or allow the user agent ""MagelanPageReview"" in the CDN.","Das CDN vor dem Shop hat die Prüfung mit einer Bot-Abfrage beantwortet (HTTP %1). Öffnen Sie diese Seite einmal im Admin (damit die Prüfung die Adresse des Webservers kennt) oder erlauben Sie im CDN den User-Agent ""MagelanPageReview""."
+"The CDN in front of the shop stops requests from the shop server itself, so the review reads the pages directly from the web server. Visitors and search engines are not affected.","Das CDN vor dem Shop stoppt Anfragen vom Shop-Server selbst, daher liest die Prüfung die Seiten direkt vom Webserver. Besucher und Suchmaschinen sind nicht betroffen."
+Open the setting,Einstellung öffnen
+"Magelan Rich Snippets is installed, but its product data is switched off. Switch on ""Product JSON-LD"" and the price, availability and rating go into every product page.","Magelan Rich Snippets ist installiert, aber die Produktdaten sind ausgeschaltet. Schalten Sie ""Product JSON-LD"" ein, dann stehen Preis, Verfügbarkeit und Bewertung auf jeder Produktseite."

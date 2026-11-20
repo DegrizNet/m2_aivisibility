@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Degriz d.o.o. All rights reserved.
+ * See LICENSE.txt for the licence.
+ *
+ * A plain deferred script - no RequireJS, so it works the same in Luma and Hyvä.
+ *
+ * @var \Magelan\AiVisibility\Block\Tracker $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+if (!$block->isActive()) {
+    return;
+}
+?>
+<script src="<?= $escaper->escapeUrl($block->getViewFileUrl('Magelan_AiVisibility::js/track.js')) ?>"
+        data-mgl-ai="<?= $escaper->escapeHtmlAttr($block->getConfigJson()) ?>" defer></script>

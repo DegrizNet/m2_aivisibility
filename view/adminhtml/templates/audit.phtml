@@ -1,0 +1,85 @@
+<?php
+/**
+ * Copyright © Degriz d.o.o. All rights reserved.
+ * See LICENSE.txt for the licence.
+ *
+ * @var \Magelan\AiVisibility\Block\Adminhtml\Audit $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$result = $block->getResult();
+$statusLabels = ['ok' => __('Good'), 'warn' => __('Could be better'), 'fail' => __('Missing')];
+?>
+<div class="mgl-ai">
+    <form class="mgl-ai__card mgl-ai__form" method="post" action="<?= $escaper->escapeUrl($block->getRunUrl()) ?>">
+        <input type="hidden" name="form_key" value="<?= $escaper->escapeHtmlAttr($block->getFormKey()) ?>"/>
+        <h2><?= $escaper->escapeHtml(__('What does an AI crawler see on this page?')) ?></h2>
+        <p><?= $escaper->escapeHtml(__('The page is fetched over the internet with the crawler\'s name, the way the crawler itself would get it, and read without running JavaScript.')) ?></p>
+        <div class="mgl-ai__row">
+            <input type="url" name="url" required class="admin__control-text" value="<?= $escaper->escapeHtmlAttr($block->getDefaultUrl()) ?>"
+                   placeholder="https://" aria-label="<?= $escaper->escapeHtmlAttr(__('Address')) ?>"/>
+            <select name="agent" class="admin__control-select" aria-label="<?= $escaper->escapeHtmlAttr(__('Crawler')) ?>">
+                <?php foreach ($block->getAgents() as $agent): ?>
+                    <option value="<?= $escaper->escapeHtmlAttr($agent) ?>" <?= $result !== null && $result['agent'] === $agent ? 'selected' : '' ?>><?= $escaper->escapeHtml($agent) ?></option>
+                <?php endforeach; ?>
+            </select>
+            <button type="submit" class="action-primary"><?= $escaper->escapeHtml(__('Check')) ?></button>
+        </div>
+    </form>
+
+    <?php if ($result !== null && isset($result['error'])): ?>
+        <div class="message message-error"><div><?= $escaper->escapeHtml($result['error']) ?></div></div>
+    <?php elseif ($result !== null): ?>
+        <?php if (!empty($result['notice'])): ?>
+            <div class="message message-warning"><div><?= $escaper->escapeHtml($result['notice']) ?></div></div>
+        <?php endif; ?>
+        <section class="mgl-ai__card">
+            <div class="mgl-ai__score">
+                <span class="mgl-ai__score-value <?= $result['score'] >= 80 ? '_ok' : ($result['score'] >= 50 ? '_warn' : '_no') ?>"><?= (int)$result['score'] ?></span>
+                <div>
+                    <h2><?= $escaper->escapeHtml($result['facts']['title'] ?: $result['fetched']['url']) ?></h2>
+                    <p><?= $escaper->escapeHtml(__('%1 as %2: HTTP %3, %4 kB, %5 ms', $result['fetched']['url'], $result['agent'], $result['fetched']['status'], round($result['facts']['bytes'] / 1024), $result['fetched']['ms'])) ?></p>
+                </div>
+            </div>
+            <table class="data-grid mgl-ai__table">
+                <tbody>
+                <?php foreach ($result['checks'] as $check): ?>
+                    <tr>
+                        <td class="mgl-ai__state"><span class="mgl-ai__pill _<?= $escaper->escapeHtmlAttr($check['status']) ?>"><?= $escaper->escapeHtml($statusLabels[$check['status']]) ?></span></td>
+                        <td><strong><?= $escaper->escapeHtml($check['label']) ?></strong></td>
+                        <td><?= $escaper->escapeHtml($check['detail']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="mgl-ai__card">
+            <h2><?= $escaper->escapeHtml(__('May each AI crawler read this page?')) ?></h2>
+            <p class="note"><?= $escaper->escapeHtml(__('According to the robots.txt of this store view.')) ?></p>
+            <ul class="mgl-ai__access">
+                <?php foreach ($result['robots'] as $token => $access): ?>
+                    <li class="<?= $access['allowed'] ? '_ok' : '_no' ?>" title="<?= $escaper->escapeHtmlAttr($block->kindLabel($access['kind'])) ?>">
+                        <?= $escaper->escapeHtml($token) ?>: <?= $escaper->escapeHtml($access['allowed'] ? __('Allowed') : __('Blocked')) ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+    <?php endif; ?>
+
+    <section class="mgl-ai__card">
+        <h2><?= $escaper->escapeHtml(__('How ready is the catalogue?')) ?></h2>
+        <p><?= $escaper->escapeHtml(__('Assistants answer from what the shop writes. Every empty description is a question they can not answer about that product.')) ?></p>
+        <table class="data-grid mgl-ai__table">
+            <tbody>
+            <?php foreach ($block->getReadiness() as $row): ?>
+                <?php $share = $row['total'] > 0 ? (int)round(100 * $row['count'] / $row['total']) : 0; ?>
+                <tr>
+                    <td><?= $escaper->escapeHtml($row['label']) ?></td>
+                    <td class="_num"><?= (int)$row['count'] ?> / <?= (int)$row['total'] ?></td>
+                    <td class="mgl-ai__meter"><span class="<?= $share <= 10 ? '_ok' : ($share <= 40 ? '_warn' : '_no') ?>" style="width: <?= (int)$share ?>%"></span></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</div>

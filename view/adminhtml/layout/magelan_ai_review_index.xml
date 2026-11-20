@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * The page review.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magelan_AiVisibility::css/admin.css"/>
+        <css src="Magelan_AiVisibility::css/review-12.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magelan\AiVisibility\Block\Adminhtml\Review" name="magelan.ai.review"/>
+        </referenceContainer>
+    </body>
+</page>

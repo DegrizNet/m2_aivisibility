@@ -1,0 +1,46 @@
+/**
+ * Copyright © Degriz d.o.o. All rights reserved.
+ * See LICENSE.txt for the licence.
+ *
+ * The overview and the audit page.
+ */
+.mgl-ai__bar { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between; margin: 0 0 2rem; }
+.mgl-ai__periods { display: inline-flex; border: 1px solid #adadad; border-radius: 2px; overflow: hidden; }
+.mgl-ai__period { padding: .6rem 1.4rem; color: #303030; background: #fff; border-right: 1px solid #adadad; }
+.mgl-ai__period:last-child { border-right: 0; }
+.mgl-ai__period._active { background: #514943; color: #fff; }
+.mgl-ai__period:hover { text-decoration: none; }
+.mgl-ai__links { display: flex; gap: 1.5rem; align-items: center; }
+.mgl-ai__card { background: #fff; border: 1px solid #e3e3e3; padding: 1.5rem 2rem; margin: 0 0 2rem; }
+.mgl-ai__card h2 { font-size: 1.8rem; margin: 0 0 1.5rem; }
+.mgl-ai__card h2 small { color: #777; font-size: 1.4rem; margin-left: .6rem; }
+.mgl-ai__table { width: 100%; }
+.mgl-ai__table td, .mgl-ai__table th { vertical-align: middle; }
+.mgl-ai__table ._num { text-align: right; white-space: nowrap; }
+.mgl-ai__table ._bad { color: #e22626; font-weight: 600; }
+.mgl-ai__chart { display: flex; gap: 2px; align-items: flex-end; height: 8rem; margin: 0 0 1.5rem; padding: 0 0 2px; border-bottom: 1px solid #e3e3e3; }
+.mgl-ai__chart span { flex: 1; min-height: 2px; background: #1979c3; border-radius: 2px 2px 0 0; }
+.mgl-ai__pill { display: inline-block; padding: .2rem .8rem; border-radius: 1rem; font-size: 1.2rem; font-weight: 600; white-space: nowrap; }
+.mgl-ai__pill._ok { background: #e5f7e2; color: #185b00; }
+.mgl-ai__pill._warn { background: #fffbbb; color: #6b5900; }
+.mgl-ai__pill._no, .mgl-ai__pill._fail { background: #fae5e5; color: #a00; }
+.mgl-ai__form p { margin: 0 0 1.2rem; }
+.mgl-ai__row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.mgl-ai__row .admin__control-text { flex: 1 1 40rem; }
+.mgl-ai__score { display: flex; gap: 2rem; align-items: center; margin: 0 0 1.5rem; }
+.mgl-ai__score h2 { margin: 0 0 .4rem; }
+.mgl-ai__score p { margin: 0; color: #666; word-break: break-all; }
+.mgl-ai__score-value { flex: none; display: flex; align-items: center; justify-content: center; width: 7rem; height: 7rem; border-radius: 50%; font-size: 2.8rem; font-weight: 700; color: #fff; }
+.mgl-ai__score-value._ok { background: #3a9a1e; }
+.mgl-ai__score-value._warn { background: #c99400; }
+.mgl-ai__score-value._no { background: #c62828; }
+.mgl-ai__state { width: 1%; }
+.mgl-ai__access { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin: 0; padding: 0; }
+.mgl-ai__access li { padding: .3rem .9rem; border-radius: 1rem; font-size: 1.25rem; }
+.mgl-ai__access li._ok { background: #e5f7e2; }
+.mgl-ai__access li._no { background: #fae5e5; }
+.mgl-ai__meter { width: 30%; }
+.mgl-ai__meter span { display: block; height: .8rem; min-width: 2px; border-radius: .4rem; }
+.mgl-ai__meter span._ok { background: #3a9a1e; }
+.mgl-ai__meter span._warn { background: #c99400; }
+.mgl-ai__meter span._no { background: #c62828; }

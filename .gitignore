@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.bak
+*.bak-*
+/dev/ci/vendor/
+/dev/ci/.phpunit.cache/
+/dev/ci/composer.lock
+/dev/check/*.png
+/dev/check/*.png
+__pycache__/

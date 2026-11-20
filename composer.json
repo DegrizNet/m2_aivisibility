@@ -1,0 +1,45 @@
+{
+    "name": "degriznet/m2_aivisibility",
+    "description": "AI visibility (GEO) for Magento 2: llms.txt, AI crawler rules in robots.txt, a log of AI bot visits, traffic and orders from ChatGPT, Perplexity, Claude and other assistants and an audit of what an AI bot sees on a page.",
+    "type": "magento2-module",
+    "version": "2.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anže Voh",
+            "homepage": "https://degriz.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~8.2.0||~8.3.0||~8.4.0||~8.5.0",
+        "magento/framework": "^103.0.6",
+        "magento/module-backend": "^102.0.6",
+        "magento/module-catalog": "^104.0.6",
+        "magento/module-catalog-inventory": "^100.4.6",
+        "magento/module-checkout": "^100.4.6",
+        "magento/module-cms": "^104.0.6",
+        "magento/module-config": "^101.2.6",
+        "magento/module-customer": "^103.0.6",
+        "magento/module-quote": "^101.2.6",
+        "magento/module-robots": "^101.1.2",
+        "magento/module-sales": "^103.0.6",
+        "magento/module-store": "^101.1.6",
+        "magento/module-tax": "^100.4.6"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magelan\\AiVisibility\\": ""
+        }
+    },
+    "archive": {
+        "exclude": [
+            "/.gitattributes",
+            "/.gitignore",
+            "/dev"
+        ]
+    }
+}

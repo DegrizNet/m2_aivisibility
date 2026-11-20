@@ -1,0 +1,193 @@
+<?php
+/**
+ * Copyright © Degriz d.o.o. All rights reserved.
+ * See LICENSE.txt for the licence.
+ *
+ * Page review: score, what to fix, addresses not found.
+ *
+ * @var \Magelan\AiVisibility\Block\Adminhtml\Review $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+$stores = $block->getStores();
+$run = $block->getRun();
+$open = $block->isOpen($run);
+$done = $block->getDoneRun();
+$history = $block->getHistory();
+$problems = $block->getProblems();
+$missing = $block->getMissing();
+$canRedirect = $block->canRedirect();
+$score = $done !== null && $done['score'] !== null ? (int)$done['score'] : null;
+?>
+<div class="mgl-ai mgl-air" data-mgl-air
+     data-step-url="<?= $escaper->escapeUrl($block->getStepUrl()) ?>"
+     data-run="<?= $open ? (int)$run['run_id'] : 0 ?>"
+     data-form-key="<?= $escaper->escapeHtmlAttr($block->getFormKey()) ?>">
+
+    <div class="mgl-ai__bar">
+        <div class="mgl-air__store">
+            <?php if (count($stores) > 1): ?>
+                <label for="mgl-air-store"><?= $escaper->escapeHtml(__('Store view')) ?></label>
+                <select id="mgl-air-store" class="admin__control-select" data-switch>
+                    <?php foreach ($stores as $id => $name): ?>
+                        <option value="<?= $escaper->escapeUrl($block->getSwitchUrl($id)) ?>"<?= $id === $block->getStoreId() ? ' selected' : '' ?>><?= $escaper->escapeHtml($name) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            <?php endif; ?>
+        </div>
+        <div class="mgl-ai__links">
+            <a href="<?= $escaper->escapeUrl($block->getConfigUrl()) ?>"><?= $escaper->escapeHtml(__('Settings')) ?></a>
+            <form method="post" action="<?= $escaper->escapeUrl($block->getStartUrl()) ?>">
+                <input type="hidden" name="form_key" value="<?= $escaper->escapeHtmlAttr($block->getFormKey()) ?>">
+                <button type="submit" class="action-primary" <?= $open ? 'disabled' : '' ?>><?= $escaper->escapeHtml(__('Review now')) ?></button>
+            </form>
+        </div>
+    </div>
+
+    <?php if ($open): ?>
+        <section class="mgl-ai__card mgl-air__progress" data-progress>
+            <h2><?= $escaper->escapeHtml(__('The review is running')) ?></h2>
+            <div class="mgl-air__bar"><span data-bar style="width:<?= (int)($run['queued'] ? round($run['checked'] * 100 / $run['queued']) : 0) ?>%"></span></div>
+            <p data-progress-text><?= $escaper->escapeHtml(__('%1 of %2 pages checked.', (int)$run['checked'], (int)$run['queued'])) ?></p>
+            <p class="mgl-air__muted"><?= $escaper->escapeHtml(__('One page a second, so the shop does not notice. You can leave this page: the review goes on at night by itself.')) ?></p>
+        </section>
+    <?php elseif ($run !== null && $run['status'] === \Magelan\AiVisibility\Model\Seo\Review::BLOCKED): ?>
+        <div class="message message-warning"><div><?= $escaper->escapeHtml((string)$run['note']) ?></div></div>
+    <?php endif; ?>
+
+    <?php if ($block->readsDirectly()): ?>
+        <div class="message message-notice"><div><?= $escaper->escapeHtml(__('The CDN in front of the shop stops requests from the shop server itself, so the review reads the pages directly from the web server. Visitors and search engines are not affected.')) ?></div></div>
+    <?php endif; ?>
+
+    <?php if ($done === null && !$open): ?>
+        <section class="mgl-ai__card mgl-air__empty">
+            <h2><?= $escaper->escapeHtml(__('No review yet')) ?></h2>
+            <p><?= $escaper->escapeHtml(__('The review reads every page of the shop the way Google and AI assistants read it, and lists what to fix: missing or repeated titles and descriptions, headings, broken links, redirects, slow pages. It changes nothing. It runs every night; click "Review now" to see the first result right away.')) ?></p>
+        </section>
+    <?php endif; ?>
+
+    <?php if ($done !== null): ?>
+        <section class="mgl-ai__card">
+            <div class="mgl-ai__score">
+                <div class="mgl-ai__score-value <?= $escaper->escapeHtmlAttr($block->scoreClass($score)) ?>" data-score><?= $score !== null ? (int)$score : '–' ?></div>
+                <div>
+                    <h2><?= $escaper->escapeHtml(__('Score of %1 pages', (int)$done['pages'])) ?></h2>
+                    <p><?= $escaper->escapeHtml(__('Every page starts at 100 and loses points for each problem. Last review: %1.', $block->formatWhen((string)$done['finished_at']))) ?></p>
+                </div>
+                <?php if (count($history) > 1): ?>
+                    <div class="mgl-air__trend" role="img" aria-label="<?= $escaper->escapeHtmlAttr(__('Score of the last reviews')) ?>">
+                        <?php foreach ($history as $item): ?>
+                            <span class="<?= $escaper->escapeHtmlAttr($block->scoreClass((int)$item['score'])) ?>" style="height:<?= (int)max(4, (int)$item['score']) ?>%"
+                                  title="<?= $escaper->escapeHtmlAttr($block->formatWhen((string)$item['finished_at']) . ': ' . (int)$item['score']) ?>"></span>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+
+        <section class="mgl-ai__card">
+            <h2><?= $escaper->escapeHtml(__('What to fix')) ?> <small><?= count($problems) ?></small></h2>
+            <?php if ($problems === []): ?>
+                <p><?= $escaper->escapeHtml(__('Nothing. Every page has a title, a description and one main heading, and every link works.')) ?></p>
+            <?php endif; ?>
+            <div class="mgl-air__problems">
+                <?php foreach ($problems as $problem): ?>
+                    <details class="mgl-air__problem" data-problem="<?= $escaper->escapeHtmlAttr($problem['code']) ?>">
+                        <summary>
+                            <span class="mgl-ai__pill <?= $escaper->escapeHtmlAttr($block->severityClass($problem['severity'])) ?>"><?= $escaper->escapeHtml($block->severityLabel($problem['severity'])) ?></span>
+                            <b><?= $escaper->escapeHtml($problem['label']) ?></b>
+                            <span class="mgl-air__count"><?= $escaper->escapeHtml(__('%1 pages', $problem['count'])) ?></span>
+                        </summary>
+                        <p class="mgl-air__advice"><?= $escaper->escapeHtml($problem['advice']) ?>
+                            <?php if ($problem['setting']): ?>
+                                <a href="<?= $escaper->escapeUrl($problem['setting']) ?>"><?= $escaper->escapeHtml(__('Open the setting')) ?></a>
+                            <?php endif; ?></p>
+                        <div class="mgl-air__scroll">
+                            <table class="data-grid mgl-ai__table">
+                                <thead><tr>
+                                    <th class="data-grid-th"><?= $escaper->escapeHtml(__('Page')) ?></th>
+                                    <th class="data-grid-th"><?= $escaper->escapeHtml(__('Found')) ?></th>
+                                    <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Score')) ?></th>
+                                    <th class="data-grid-th"></th>
+                                </tr></thead>
+                                <tbody>
+                                <?php foreach ($problem['pages'] as $page): ?>
+                                    <tr>
+                                        <td class="mgl-air__page">
+                                            <a href="<?= $escaper->escapeUrl($page['url']) ?>" target="_blank" rel="noopener">/<?= $escaper->escapeHtml((string)$page['path']) ?></a>
+                                            <?php if ((string)$page['title'] !== ''): ?><br><span class="mgl-air__muted"><?= $escaper->escapeHtml((string)$page['title']) ?></span><?php endif; ?>
+                                        </td>
+                                        <td class="mgl-air__detail"><?= $escaper->escapeHtml((string)$page['detail']) ?></td>
+                                        <td class="_num"><?= (int)$page['score'] ?></td>
+                                        <td class="_num">
+                                            <?php if ($page['fix']): ?>
+                                                <a class="action-default mgl-air__fix" href="<?= $escaper->escapeUrl($page['fix']) ?>" target="_blank" rel="noopener"><?= $escaper->escapeHtml(__('Fix')) ?></a>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php if ($problem['count'] > count($problem['pages'])): ?>
+                            <p class="mgl-air__muted"><?= $escaper->escapeHtml(__('The %1 pages with the lowest score are shown; fix them and the next review shows the rest.', count($problem['pages']))) ?></p>
+                        <?php endif; ?>
+                    </details>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
+    <section class="mgl-ai__card" id="missing" data-missing>
+        <h2><?= $escaper->escapeHtml(__('Addresses not found (404)')) ?> <small><?= count($missing) ?></small></h2>
+        <p class="mgl-air__muted"><?= $escaper->escapeHtml(__('Addresses visitors and search engines asked for that do not exist: old links, deleted products, typos. Redirect them to the page that replaced them, and visitors and search ranking are not lost.')) ?>
+            <?php if ($block->countMissing(\Magelan\AiVisibility\Model\Seo\Missing::REDIRECTED) > 0): ?>
+                <?= $escaper->escapeHtml(__('%1 redirected so far.', $block->countMissing(\Magelan\AiVisibility\Model\Seo\Missing::REDIRECTED))) ?>
+            <?php endif; ?></p>
+        <?php if ($missing === []): ?>
+            <p><?= $escaper->escapeHtml(__('None so far.')) ?></p>
+        <?php else: ?>
+            <div class="mgl-air__scroll">
+                <table class="data-grid mgl-ai__table">
+                    <thead><tr>
+                        <th class="data-grid-th"><?= $escaper->escapeHtml(__('Address')) ?></th>
+                        <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Visitors')) ?></th>
+                        <th class="data-grid-th _num"><?= $escaper->escapeHtml(__('Crawlers')) ?></th>
+                        <th class="data-grid-th"><?= $escaper->escapeHtml(__('Last (UTC)')) ?></th>
+                        <th class="data-grid-th"><?= $escaper->escapeHtml(__('Linked from')) ?></th>
+                        <?php if ($canRedirect): ?><th class="data-grid-th"><?= $escaper->escapeHtml(__('Redirect to')) ?></th><?php endif; ?>
+                    </tr></thead>
+                    <tbody>
+                    <?php foreach ($missing as $row): ?>
+                        <tr data-missing-row="<?= (int)$row['missing_id'] ?>">
+                            <td class="mgl-air__page">/<?= $escaper->escapeHtml((string)$row['path']) ?></td>
+                            <td class="_num"><?= (int)$row['hits'] ?></td>
+                            <td class="_num"><?= (int)$row['bot_hits'] ?></td>
+                            <td><?= $escaper->escapeHtml((string)$row['last_at']) ?></td>
+                            <td class="mgl-air__detail"><?= $escaper->escapeHtml((string)$row['referer']) ?></td>
+                            <?php if ($canRedirect): ?>
+                                <td>
+                                    <form method="post" action="<?= $escaper->escapeUrl($block->getRedirectUrl()) ?>" class="mgl-air__redirect">
+                                        <input type="hidden" name="form_key" value="<?= $escaper->escapeHtmlAttr($block->getFormKey()) ?>">
+                                        <input type="hidden" name="id" value="<?= (int)$row['missing_id'] ?>">
+                                        <input type="text" class="admin__control-text" name="target" required
+                                               aria-label="<?= $escaper->escapeHtmlAttr(__('Redirect /%1 to', $row['path'])) ?>"
+                                               placeholder="<?= $escaper->escapeHtmlAttr(__('new-page.html')) ?>"
+                                               value="<?= $escaper->escapeHtmlAttr((string)$row['suggestion']) ?>">
+                                        <button type="submit" class="action-default"><?= $escaper->escapeHtml(__('Redirect')) ?></button>
+                                        <button type="submit" class="action-link" formaction="<?= $escaper->escapeUrl($block->getIgnoreUrl()) ?>" formnovalidate><?= $escaper->escapeHtml(__('Ignore')) ?></button>
+                                    </form>
+                                    <?php if ((string)$row['suggestion'] !== ''): ?>
+                                        <span class="mgl-air__muted"><?= $escaper->escapeHtml(__('Suggested: the most similar existing address.')) ?></span>
+                                    <?php endif; ?>
+                                </td>
+                            <?php endif; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    </section>
+</div>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', ['src' => $block->getViewFileUrl('Magelan_AiVisibility::js/review-12.js')], '', false) ?>

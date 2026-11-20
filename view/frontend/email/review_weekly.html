@@ -1,0 +1,19 @@
+<!--@subject {{trans "Page review of %shop" shop=$shop}} @-->
+<!--@vars {
+"var shop":"Shop name",
+"var sections|raw":"Scores and problems per store view",
+"var url":"Page review in the admin"
+} @-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f2ee;font-family:Helvetica,Arial,sans-serif;color:#24211e">
+    <tr><td align="center" style="padding:28px 12px">
+        <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:8px">
+            <tr><td style="padding:24px 28px 4px;font-size:20px;font-weight:bold">{{trans "Page review of %shop" shop=$shop}}</td></tr>
+            <tr><td style="padding:0 28px;color:#57524b;font-size:13.5px">{{trans "What search engines and AI assistants find on your pages this week. 100 means nothing to fix."}}</td></tr>
+            <tr><td style="padding:8px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{{var sections|raw}}</table></td></tr>
+            <tr><td style="padding:18px 28px 26px">
+                <a href="{{var url}}" style="display:inline-block;background:#24211e;color:#ffffff;text-decoration:none;padding:11px 20px;border-radius:4px;font-weight:bold">{{trans "Open the page review"}}</a>
+                <p style="color:#8a847b;font-size:12px;margin:14px 0 0">{{trans "You can switch this e-mail off in Stores > Configuration > Magelan > AI Visibility > Page Review."}}</p>
+            </td></tr>
+        </table>
+    </td></tr>
+</table>

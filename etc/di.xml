@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- The AI crawler groups go after the shop's own robots.txt lines. -->
+    <type name="Magento\Robots\Model\Robots">
+        <plugin name="magelan_ai_crawler_rules" type="Magelan\AiVisibility\Plugin\AddAiCrawlerRules"/>
+    </type>
+
+    <!-- The page review reads the full page cache but never fills it. -->
+    <type name="Magento\Framework\App\PageCache\Kernel">
+        <plugin name="magelan_ai_skip_page_cache_for_audit" type="Magelan\AiVisibility\Plugin\SkipPageCacheForAudit"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="magelan_ai_page_review" xsi:type="object">Magelan\AiVisibility\Console\Command\PageReview</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magelan\AiVisibility\Console\Command\PageReview">
+        <arguments>
+            <argument name="review" xsi:type="object">Magelan\AiVisibility\Model\Seo\Review\Proxy</argument>
+        </arguments>
+    </type>
+</config>

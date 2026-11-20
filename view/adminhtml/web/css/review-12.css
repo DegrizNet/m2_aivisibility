@@ -1,0 +1,41 @@
+/**
+ * Copyright © Degriz d.o.o. All rights reserved.
+ * See LICENSE.txt for the licence.
+ *
+ * The page review (a file of its own: a CDN in front of the admin keeps static files by name).
+ */
+.mgl-air__store { display: flex; gap: 1rem; align-items: center; }
+.mgl-air__store .admin__control-select { min-width: 28rem; }
+.mgl-air .mgl-ai__links form { margin: 0; }
+.mgl-air__muted { color: #6b6b6b; font-size: 1.25rem; }
+.mgl-air__empty p { max-width: 75ch; margin: 0; line-height: 1.6; }
+.mgl-air__progress p { margin: .8rem 0 0; }
+.mgl-air__bar { height: 1rem; background: #f0f0f0; border-radius: .5rem; overflow: hidden; }
+.mgl-air__bar span { display: block; height: 100%; background: #1979c3; transition: width .4s; }
+.mgl-air__trend { margin-left: auto; display: flex; gap: 3px; align-items: flex-end; height: 6rem; width: 18rem; flex: none; }
+.mgl-air__trend span { flex: 1; min-height: 2px; border-radius: 2px 2px 0 0; background: #c99400; }
+.mgl-air__trend span._ok { background: #3a9a1e; }
+.mgl-air__trend span._no { background: #c62828; }
+.mgl-air__problems { display: flex; flex-direction: column; gap: .6rem; }
+.mgl-air__problem { border: 1px solid #e3e3e3; border-radius: 2px; }
+.mgl-air__problem > summary { display: flex; gap: 1rem; align-items: center; padding: 1rem 1.2rem; cursor: pointer; list-style: none; }
+.mgl-air__problem > summary::-webkit-details-marker { display: none; }
+.mgl-air__problem > summary::before { content: '▸'; color: #888; width: 1rem; transition: transform .15s; }
+.mgl-air__problem[open] > summary::before { transform: rotate(90deg); }
+.mgl-air__problem > summary:hover { background: #f8f8f8; }
+.mgl-air__problem[open] { padding-bottom: 1rem; }
+.mgl-air__problem[open] > :not(summary) { margin-left: 1.2rem; margin-right: 1.2rem; }
+.mgl-air__count { margin-left: auto; color: #555; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.mgl-air__advice { max-width: 90ch; margin: .2rem 0 1rem; line-height: 1.55; }
+.mgl-ai__pill._low { background: #eef2f6; color: #3d4b5c; }
+.mgl-air__scroll { overflow-x: auto; }
+.mgl-air__page { word-break: break-all; min-width: 18rem; }
+.mgl-air__detail { word-break: break-word; color: #444; font-size: 1.25rem; }
+.mgl-air__fix { white-space: nowrap; }
+.mgl-air__redirect { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin: 0; }
+.mgl-air__redirect .admin__control-text { flex: 1 1 18rem; min-width: 14rem; }
+.mgl-air__redirect .action-link { background: none; border: 0; color: #007bdb; padding: 0 .4rem; cursor: pointer; }
+@media (max-width: 900px) {
+    .mgl-air__trend { display: none; }
+    .mgl-air__store .admin__control-select { min-width: 0; }
+}

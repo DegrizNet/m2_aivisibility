@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Under Marketing, next to SEO and search, because that is where visibility is looked after.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magelan_AiVisibility::menu" title="AI Visibility" translate="title" module="Magelan_AiVisibility"
+             sortOrder="16" parent="Magento_Backend::marketing" resource="Magelan_AiVisibility::dashboard"/>
+        <add id="Magelan_AiVisibility::dashboard_page" title="Overview" translate="title" module="Magelan_AiVisibility"
+             sortOrder="10" parent="Magelan_AiVisibility::menu" action="magelan_ai/dashboard/index" resource="Magelan_AiVisibility::dashboard"/>
+        <add id="Magelan_AiVisibility::audit_page" title="What Does a Bot See?" translate="title" module="Magelan_AiVisibility"
+             sortOrder="20" parent="Magelan_AiVisibility::menu" action="magelan_ai/audit/index" resource="Magelan_AiVisibility::audit"/>
+        <add id="Magelan_AiVisibility::review_page" title="Page Review" translate="title" module="Magelan_AiVisibility"
+             sortOrder="30" parent="Magelan_AiVisibility::menu" action="magelan_ai/review/index" resource="Magelan_AiVisibility::review"/>
+        <add id="Magelan_AiVisibility::settings" title="Settings" translate="title" module="Magelan_AiVisibility"
+             sortOrder="90" parent="Magelan_AiVisibility::menu" action="adminhtml/system_config/edit/section/magelan_aivisibility" resource="Magelan_AiVisibility::config"/>
+    </menu>
+</config>
